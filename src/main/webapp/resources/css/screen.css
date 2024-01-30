@@ -352,10 +352,11 @@
 		width: 99%;
 	}
 	#extra img {
-		width: 203px;
+		width: 191px;
 	}
 	#extra a {
 		display: block;
+		padding: 4px;
 		border: 1px solid #DAEAAA;
 		margin-bottom: 7px;
 	}
