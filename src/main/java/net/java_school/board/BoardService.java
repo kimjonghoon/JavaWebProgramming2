@@ -39,11 +39,11 @@ public interface BoardService {
     public void addAttachFile(AttachFile attachFile);
 
     //글수정
-    @PreAuthorize("#article?.email == principal.username or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or #article.email == authentication.principal.username")
     public void modifyArticle(Article article);
 
     //글삭제
-    @PreAuthorize("#article?.email == principal.username or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or #article.email == principal.username")
     public void removeArticle(Article article);
 
     //조회수 증가

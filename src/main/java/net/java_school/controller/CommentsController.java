@@ -84,7 +84,7 @@ public class CommentsController {
 	public void updateComment(
 			@PathVariable(name="articleNo") Integer articleNo, 
 			@PathVariable(name="commentNo") Integer commentNo, 
-			@RequestParam(name="memo") String memo, 
+			@RequestParam(name="memo", required=false) String memo, 
 			Principal principal) {
 		
 		Comment comment = boardService.getComment(commentNo);
