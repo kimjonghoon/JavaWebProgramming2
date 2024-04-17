@@ -3,7 +3,6 @@ package net.java_school.controller;
 import java.security.Principal;
 import java.util.Locale;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
 import net.java_school.commons.WebContants;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -79,7 +79,6 @@ public class UsersController {
 			return "users/editAccount";
 		}
 
-		//user.setEmail(principal.getName());
 		try {
 			userService.editAccount(user);
 		} catch (AccessDeniedException e) {
@@ -138,18 +137,18 @@ public class UsersController {
 	}
 
 	@PostMapping("bye")
-	public String bye(String email, String passwd, HttpServletRequest req, Locale locale) throws ServletException {
-
-		User user = new User();
-		user.setEmail(email);
-		user.setPasswd(passwd);
+	public String bye(
+			@ModelAttribute(name="user") User user, 
+			HttpServletRequest req, 
+			Locale locale) throws Exception {
+		
 		try {
 			userService.bye(user);
-		} catch (AccessDeniedException e) {
+		} catch (Exception e) {
 			String message =  messageSource.getMessage("passwd.incorrect", null, locale);
 			throw new AccessDeniedException(message);
 		}
-
+		
 		req.logout();
 
 		return "redirect:/users/bye_confirm";

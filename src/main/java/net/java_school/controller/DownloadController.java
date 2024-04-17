@@ -18,6 +18,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import net.java_school.commons.WebContants;
 import net.java_school.board.BoardService;
@@ -31,7 +32,9 @@ public class DownloadController {
 	private BoardService boardService;
 
 	@GetMapping("data/{filename:.+}")
-	public ResponseEntity<InputStreamResource> download(@PathVariable String filename, HttpServletRequest req) throws IOException {
+	public ResponseEntity<InputStreamResource> download(
+			@PathVariable(name="filename") String filename, 
+			HttpServletRequest req) throws IOException {
 
 		File file = new File(WebContants.UPLOAD_PATH + filename);
 
@@ -52,7 +55,12 @@ public class DownloadController {
 
 	// I use this
 	@PostMapping("data")
-	public void boardDataDownload(String filename, int fileno, HttpServletRequest req, HttpServletResponse resp) {
+	public void boardDataDownload(
+			@RequestParam(name="filename") String filename, 
+			@RequestParam(name="fileno") Integer fileno, 
+			HttpServletRequest req, 
+			HttpServletResponse resp) {
+		
 		OutputStream outputStream = null;
 
 		AttachFile attachFile = boardService.getAttachFile(fileno);
@@ -102,5 +110,4 @@ public class DownloadController {
 			}
 		}
 	}
-
 }

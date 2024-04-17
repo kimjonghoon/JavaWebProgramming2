@@ -40,14 +40,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.Valid;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-
 @Controller
 @RequestMapping("bbs")
 public class BbsController extends Paginator {
-	private Logger log = LogManager.getLogger("net.java_school");
-
+	
 	@Autowired
 	private BoardService boardService;
 
@@ -65,18 +61,14 @@ public class BbsController extends Paginator {
 	}
 
 	@GetMapping("{boardCd}")
-	public String list(@CookieValue(value="numPerPage", defaultValue="10") String num,
-		       	@PathVariable String boardCd,
-		       	Integer page,
-		       	String searchWord,
-		       	Locale locale,
-		       	Model model) {
+	public String list(
+			@CookieValue(name="numPerPage", defaultValue="10") Integer numPerPage,
+			@PathVariable(name="boardCd") String boardCd,
+			@RequestParam(name="page", defaultValue="1") Integer page,
+			@RequestParam(name="searchWord", defaultValue="") String searchWord,
+			Locale locale,
+			Model model) {
 
-		if (page == null) {
-			page = 1;
-		}
-
-		int numPerPage = Integer.parseInt(num);
 		int pagePerBlock = 10;
 
 		int totalRecord = boardService.getTotalRecord(boardCd, searchWord);
@@ -131,18 +123,15 @@ public class BbsController extends Paginator {
 	}
 
 	@GetMapping("{boardCd}/{articleNo}")
-	public String view(@CookieValue(value="numPerPage", defaultValue="10") String num,
-		       	@PathVariable String boardCd,
-		       	@PathVariable Integer articleNo,
-			Integer page,
-		       	String searchWord,
-		       	Locale locale,
-		       	HttpServletRequest req,
-		       	Model model) {
-
-		if (page == null) {
-			page = 1;
-		}
+	public String view(
+			@CookieValue(name="numPerPage", defaultValue="10") Integer numPerPage,
+			@PathVariable(name="boardCd") String boardCd,
+			@PathVariable(name="articleNo") Integer articleNo,
+			@RequestParam(name="page", defaultValue="1") Integer page,
+			@RequestParam(name="searchWord", defaultValue="") String searchWord,
+			Locale locale,
+		    HttpServletRequest req,
+		    Model model) {
 
 		String lang = locale.getLanguage();
 
@@ -193,7 +182,6 @@ public class BbsController extends Paginator {
 		model.addAttribute("prevArticle", prevArticle);
 		//model.addAttribute("commentList", commentList);
 
-		int numPerPage = Integer.parseInt(num);
 		int pagePerBlock = 10;
 
 		int totalRecord = boardService.getTotalRecord(boardCd, searchWord);
@@ -246,9 +234,10 @@ public class BbsController extends Paginator {
 	}
 
 	@GetMapping("{boardCd}/new")
-	public String writeForm(@PathVariable String boardCd,
-		       	Locale locale,
-		       	Model model) {
+	public String writeForm(
+			@PathVariable(name="boardCd") String boardCd,
+		    Locale locale,
+		    Model model) {
 
 		String lang = locale.getLanguage();
 		String boardName = this.getBoardName(boardCd, lang);
@@ -263,12 +252,13 @@ public class BbsController extends Paginator {
 	}
 
 	@PostMapping("{boardCd}")
-	public String write(@Valid Article article,
+	public String write(
+			@Valid Article article,
 			BindingResult bindingResult,
-			@PathVariable String boardCd,
+			@PathVariable(name="boardCd") String boardCd,
 			Locale locale,
 			Model model,
-			MultipartFile attachFile,
+			@RequestParam(name="attachFile") MultipartFile attachFile,
 			Principal principal) throws Exception {
 
 		if (bindingResult.hasErrors()) {
@@ -310,10 +300,11 @@ public class BbsController extends Paginator {
 	}
 
 	@GetMapping("{boardCd}/{articleNo}/edit")
-	public String modifyForm(@PathVariable String boardCd,
-		       	@PathVariable Integer articleNo,
-		       	Locale locale,
-		       	Model model) {
+	public String modifyForm(
+			@PathVariable(name="boardCd") String boardCd,
+		    @PathVariable(name="articleNo") Integer articleNo,
+		    Locale locale,
+		    Model model) {
 
 		String lang = locale.getLanguage();
 		Article article = boardService.getArticle(articleNo);
@@ -331,13 +322,14 @@ public class BbsController extends Paginator {
 	}
 
 	@PostMapping("{boardCd}/{articleNo}")
-	public String modify(@Valid Article article,
+	public String modify(
+			@Valid Article article,
 			BindingResult bindingResult,
-			@PathVariable String boardCd,
-			@PathVariable Integer articleNo,
-			Integer page,
-			String searchWord,
-			MultipartFile attachFile,
+			@PathVariable(name="boardCd") String boardCd,
+			@PathVariable(name="articleNo") Integer articleNo,
+			@RequestParam(name="page") Integer page,
+			@RequestParam(name="searchWord") String searchWord,
+			@RequestParam(name="attachFile", defaultValue="") MultipartFile attachFile,
 			Locale locale,
 			Model model) throws Exception {
 
@@ -392,10 +384,11 @@ public class BbsController extends Paginator {
 	}
 
 	@DeleteMapping("/{boardCd}/{articleNo}")
-	public String deleteArticle(@PathVariable String boardCd,
-		       	@PathVariable Integer articleNo,
-		       	Integer page,
-		       	String searchWord) throws Exception {
+	public String deleteArticle(
+			@PathVariable(name="boardCd") String boardCd,
+		    @PathVariable(name="articleNo") Integer articleNo,
+		    @RequestParam(name="page") Integer page,
+		    @RequestParam(name="searchWord") String searchWord) throws Exception {
 
 		Article article = boardService.getArticle(articleNo);
 		boardService.removeArticle(article);
@@ -411,11 +404,12 @@ public class BbsController extends Paginator {
 	}
 
 	@DeleteMapping("deleteAttachFile")
-	public String deleteAttachFile(Integer attachFileNo,
-			Integer articleNo,
-			String boardCd,
-			Integer page,
-			String searchWord) throws Exception {
+	public String deleteAttachFile(
+			@RequestParam(name="attachFileNo") Integer attachFileNo,
+			@RequestParam(name="articleNo") Integer articleNo,
+			@RequestParam(name="boardCd") String boardCd,
+			@RequestParam(name="page") Integer page,
+			@RequestParam(name="searchWord") String searchWord) throws Exception {
 
 		AttachFile attachFile = boardService.getAttachFile(attachFileNo);
 		boardService.removeAttachFile(attachFile);

@@ -62,7 +62,6 @@ public class UserServiceImpl implements UserService {
     public void bye(User user) {
         String encodedPassword = this.getUser(user.getEmail()).getPasswd();
         boolean check = this.bcryptPasswordEncoder.matches(user.getPasswd(), encodedPassword);
-
         if (check == false) {
             throw new AccessDeniedException("The password is incorrect!");
         }

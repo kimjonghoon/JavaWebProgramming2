@@ -53,22 +53,24 @@ $(document).ready(function() {
 <!-- content begin -->
 <div id="content-categories"><spring:message code="membership" /></div>
 <h2><spring:message code="bye.heading" /></h2>
+
 <form id="byeForm" action="bye" method="post">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    <table>
-        <tr>
-            <td><spring:message code="email" /></td>
-            <td><input type="text" name="email" /></td>
-        </tr>
-        <tr>
-            <td><spring:message code="password" /></td>
-            <td><input type="password" name="passwd" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="<spring:message code="submit" />" /></td>
-        </tr>
-    </table>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+<table>
+    <tr>
+        <td><spring:message code="email" /></td>
+        <td><input type="text" name="email" /></td>
+    </tr>
+    <tr>
+        <td><spring:message code="password" /></td>
+        <td><input type="password" name="passwd" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="<spring:message code="submit" />" /></td>
+    </tr>
+</table>
 </form>
+
 <!-- content end -->
 		</div>
 	</div>
