@@ -37,7 +37,7 @@ $(document).ready(function() {
         if (passwd.length === 0) {
             alert('<spring:message code="passwd.validation.error" />');
             $('#editAccountForm input[name*=passwd]').val('');
-            return false;            
+            return false;
         }
         $('#editAccountForm input[name*=name]').val(name);
         $('#editAccountForm input[name*=mobile]').val(mobile);

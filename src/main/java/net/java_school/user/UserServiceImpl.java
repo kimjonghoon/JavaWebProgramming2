@@ -32,14 +32,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int editAccount(User user) {
-        String encodedPassword = this.getUser(user.getEmail()).getPasswd();
-        boolean check = this.bcryptPasswordEncoder.matches(user.getPasswd(), encodedPassword);
+	String encodedPassword = this.getUser(user.getEmail()).getPasswd(); 
+	boolean check = this.bcryptPasswordEncoder.matches(user.getPasswd(), encodedPassword);
 
-        if (check == false) {
-            throw new AccessDeniedException("The password is incorrect!");
-        }
-
-        user.setPasswd(encodedPassword);
+	if (check == false) { 
+		throw new AccessDeniedException("password incorrect!"); 
+	}
+	user.setPasswd(encodedPassword);
 
         return userMapper.update(user);
     }
