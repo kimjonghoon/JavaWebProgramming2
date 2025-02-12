@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="model2-board.keys" />" />
 <meta name="Description" content="<spring:message code="model2-board.desc" />" />
+<link rel="icon" type="image/x-icon" href="<%=request.getContextPath() %>/resources/images/favicon.ico" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
