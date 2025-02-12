@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="user.byeconfirm.keys" />" />
 <meta name="Description" content="<spring:message code="user.byeconfirm.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/print.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 </head>
 <body>
 <div id="wrap">

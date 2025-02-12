@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="<spring:message code="lang" />">
 <head>
@@ -11,11 +12,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="admin.editaccount.keys" />" />
 <meta name="Description" content="<spring:message code="admin.editaccount.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/print.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <script>
 $(document).ready(function () {
     $('.del-auth-link').click(function (e) {
@@ -121,7 +122,7 @@ $(document).ready(function () {
 </form>
 
 <div style="text-align: right;">
-    <form action="/admin">
+    <form action="${ctx}/admin">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="search" value="${param.search }" />
         <input type="submit" value="<spring:message code="user.list" />" />

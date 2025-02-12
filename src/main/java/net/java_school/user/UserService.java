@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.parameters.P;
 
 public interface UserService {
     //회원가입
@@ -14,15 +15,15 @@ public interface UserService {
 
     //내 정보 수정
     @PreAuthorize("hasRole('ADMIN') or #user.email == principal.username")
-    public int editAccount(User user);
+    public int editAccount(@P("user") User user);
 
     //비밀번호 변경
     @PreAuthorize("hasRole('ADMIN') or #email == principal.username")
-    public int changePasswd(String currentPasswd, String newPasswd, String email);
+    public int changePasswd(String currentPasswd, String newPasswd, @P("email") String email);
 
     //탈퇴
     @PreAuthorize("hasRole('ADMIN') or #user.email == principal.username")
-    public void bye(User user);
+    public void bye(@P("user") User user);
 
     //회원찾기
     @PreAuthorize("hasAnyRole('ADMIN','USER')")

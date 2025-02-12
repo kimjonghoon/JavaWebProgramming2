@@ -2,6 +2,8 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="<spring:message code="lang" />">
 <head>
@@ -10,11 +12,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="admin.board.keys" />" />
 <meta name="Description" content="<spring:message code="admin.board.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/print.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <script>
 $(document).ready(function() {
     $('.del-user-link').click(function(e) {
@@ -76,7 +78,7 @@ $(document).ready(function() {
 
 <h2><spring:message code="board.edit" /></h2>
 
-<form id="editBoard" action="/admin/editBoard" method="post">
+<form id="editBoard" action="${ctx}/admin/editBoard" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <table class="bbs-table">
         <tr>
@@ -99,7 +101,7 @@ $(document).ready(function() {
 
 <h2><spring:message code="board.new" /></h2>
 
-<form id="createBoard" action="/admin/createBoard" method="post">
+<form id="createBoard" action="${ctx}/admin/createBoard" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <table class="bbs-table">
         <tr>

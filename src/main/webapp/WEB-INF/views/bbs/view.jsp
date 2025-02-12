@@ -13,13 +13,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="bbs.view.keys" />" />
 <meta name="Description" content="<spring:message code="bbs.view.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <script>
 function displayComments() {
-    var url = '/comments/' + ${articleNo};
+    var url = '${ctx}/comments/${articleNo}';
     $.getJSON(url, function (data) {
         $('#all-comments').empty();
         $.each(data, function (i, item) {
@@ -36,7 +37,7 @@ function displayComments() {
             }
             comments = comments
                     + '<div class="comment-memo">' + item.memo + '</div>'
-                    + '<form class="comment-form" action="/comments/' + ${articleNo } + '/' + item.commentNo + '" method="put" style="display: none;">'
+                    + '<form class="comment-form" action="${ctx}/comments/${articleNo }/' + item.commentNo + '" method="put" style="display: none;">'
                     + '<div style="text-align: right;">'
                     + '<a href="#" class="comment-modify-submit-link">' + '<spring:message code="submit" />' + '</a> | <a href="#" class="comment-modify-cancel-link">' + '<spring:message code="cancel" />' + '</a>'
                     + '</div>'
@@ -81,10 +82,10 @@ $(document).ready(function () {
         var action = $('#viewForm').attr('action');
         action += articleNo;
         $('#viewForm').attr('action', action);
-	var firstItemNo = $('#list-table tr:nth-child(2) td:nth-child(2) a').attr('title');
+        var firstItemNo = $('#list-table tr:nth-child(2) td:nth-child(2) a').attr('title');
         if (parseInt(articleNo) > parseInt(firstItemNo)) {
         	$('#viewForm-page').val(${param.page - 1});
-	}
+         }
         $('#viewForm').submit();
     });
     //2022.10.18 added
@@ -336,7 +337,7 @@ $(document).on('click', '#all-comments', function (e) {
     </div>
 </div>
 
-<sf:form id="addCommentForm" action="/comments/${articleNo }" method="post" style="margin: 10px 0;">
+<sf:form id="addCommentForm" action="${ctx}/comments/${articleNo }" method="post" style="margin: 10px 0;">
     <div id="addComment">
         <textarea id="addComment-ta" name="memo" rows="7" cols="50"></textarea>
     </div>
@@ -392,7 +393,7 @@ $(document).on('click', '#all-comments', function (e) {
             <td style="text-align: center;">
                 <c:choose>
                     <c:when test="${articleNo == article.articleNo }">	
-                        <img src="/resources/images/arrow.gif" alt="<spring:message code="here" />" />
+                        <img src="<%=request.getContextPath() %>/resources/images/arrow.gif" alt="<spring:message code="here" />" />
                     </c:when>
                     <c:otherwise>
                         ${listItemNo - status.index }
@@ -402,7 +403,7 @@ $(document).on('click', '#all-comments', function (e) {
             <td>
                 <a href="#" title="${article.articleNo }">${article.title }</a>
                 <c:if test="${article.attachFileNum > 0 }">		
-                    <img src="/resources/images/attach.png" alt="<spring:message code="attach.file" />" style="vertical-align: middle;" />
+                    <img src="<%=request.getContextPath() %>/resources/images/attach.png" alt="<spring:message code="attach.file" />" style="vertical-align: middle;" />
                 </c:if>
                 <c:if test="${article.commentNum > 0 }">		
                     <span class="bbs-strong">[${article.commentNum }]</span>
@@ -450,7 +451,7 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
     <input type="button" value="<spring:message code="new.article" />" />
 </div>
 
-<form id="searchForm" action="/bbs/${boardCd }" method="get">
+<form id="searchForm" action="<%=request.getContextPath() %>/bbs/${boardCd }" method="get">
     <input type="hidden" name="page" value="1" />
     <div id="search">
         <input type="text" name="searchWord" size="15" maxlength="30" />
@@ -459,42 +460,42 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
 </form>
 
 <div id="form-group" style="display: none">
-    <form id="listForm" action="/bbs/${boardCd }" method="get">
+    <form id="listForm" action="${ctx}/bbs/${boardCd }" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <form id="viewForm" action="/bbs/${boardCd }/" method="get">
+    <form id="viewForm" action="${ctx}/bbs/${boardCd }/" method="get">
         <input type="hidden" name="page" value="${param.page }" id="viewForm-page" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <form id="writeForm" action="/bbs/${boardCd}/new" method="get">
+    <form id="writeForm" action="${ctx}/bbs/${boardCd}/new" method="get">
         <input type="hidden" name="articleNo" value="${articleNo }" />
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <sf:form id="delForm" action="/bbs/${boardCd }/${articleNo }" method="delete">
+    <sf:form id="delForm" action="${ctx}/bbs/${boardCd }/${articleNo }" method="delete">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </sf:form>
-    <form id="modifyForm" action="/bbs/${boardCd }/${articleNo }/edit" method="get">
+    <form id="modifyForm" action="${ctx}/bbs/${boardCd }/${articleNo }/edit" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <sf:form id="deleteAttachFileForm" action="/bbs/deleteAttachFile" method="delete">
+    <sf:form id="deleteAttachFileForm" action="${ctx}/bbs/deleteAttachFile" method="delete">
         <input type="hidden" name="attachFileNo" />
         <input type="hidden" name="articleNo" value="${articleNo }" />
         <input type="hidden" name="boardCd" value="${boardCd }" />
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </sf:form>
-    <sf:form id="downForm" action="/data" method="post">
+    <sf:form id="downForm" action="${ctx}/data" method="post">
         <input type="hidden" name="filename" />
         <input type="hidden" name="fileno" />
     </sf:form>
     <sf:form id="modifyCommentForm" method="put">
     	<input type="hidden" name="memo" />
     </sf:form>
-    <sf:form id="deleteCommentForm" action="/comments/${articleNo }/" method="delete">
+    <sf:form id="deleteCommentForm" action="${ctx}/comments/${articleNo }/" method="delete">
     </sf:form>
 </div>
 <!-- content end -->

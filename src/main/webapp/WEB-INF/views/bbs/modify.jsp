@@ -11,11 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="bbs.modify.keys" />" />
 <meta name="Description" content="<spring:message code="bbs.modify.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/print.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <script>
 $(document).ready(function() {
    $('#modifyForm').submit(function() {
@@ -64,8 +64,8 @@ $(document).ready(function() {
 <div id="content-categories">${boardName }</div>
 
 <h3><spring:message code="modify" /></h3>
-
-<sf:form id="modifyForm" action="/bbs/${boardCd}/${articleNo}?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="article" enctype="multipart/form-data">
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<sf:form id="modifyForm" action="${ctx}/bbs/${boardCd}/${articleNo}?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="article" enctype="multipart/form-data">
 <input type="hidden" name="page" value="${param.page }" />
 <input type="hidden" name="searchWord" value="${param.searchWord }" />
 <sf:errors path="*" cssClass="error"/>
@@ -95,7 +95,7 @@ $(document).ready(function() {
 </sf:form>
 		
 <div id="form-group" style="display: none">
-    <form id="viewForm" action="/bbs/${boardCd }/${articleNo }" method="get">
+    <form id="viewForm" action="${ctx}/bbs/${boardCd }/${articleNo }" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
@@ -118,4 +118,4 @@ $(document).ready(function() {
 	
 </div>
 </body>
-</html>	
+</html>

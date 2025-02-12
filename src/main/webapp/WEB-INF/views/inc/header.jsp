@@ -3,8 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 
-<div style="float: left;width: 150px;position: relative;top: 7px;"><a href="/"><img src="/resources/images/ci.gif" alt="java-school" /></a></div>
+<div style="float: left;width: 150px;position: relative;top: 7px;"><a href="<%=request.getContextPath() %>"><img src="<%=request.getContextPath() %>/resources/images/ci.gif" alt="java-school" /></a></div>
 
 <div id="memberMenu" style="float: right;position: relative;top: 7px;">
     <security:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
@@ -57,7 +58,7 @@ pageContext.setAttribute("korean", korean);
     <input type="button" value="English" onclick="location.href = '${english}'" />
     <input type="button" value="Korean" onclick="location.href = '${korean }'" />
 </div>
-<form id="logoutForm" action="/logout" method="post" style="display:none">
+<form id="logoutForm" action="${ctx}/logout" method="post" style="display:none">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
 <script>

@@ -11,11 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="bbs.write.keys" />" />
 <meta name="Description" content="<spring:message code="bbs.write.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/print.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <script>
 $(document).ready(function() {
    $('#writeForm').submit(function() {
@@ -67,8 +67,8 @@ $(document).ready(function() {
 <div id="content-categories">${boardName }</div>
 
 <h3><spring:message code="new.article" /></h3>
-
-<sf:form id="writeForm" action="/bbs/${boardCd}?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="article" enctype="multipart/form-data">
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<sf:form id="writeForm" action="${ctx}/bbs/${boardCd}?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="article" enctype="multipart/form-data">
 <sf:errors path="*" cssClass="error" />
 <table id="write-form" class="bbs-table">
 <tr>
@@ -99,11 +99,11 @@ $(document).ready(function() {
 </sf:form>
 
 <div id="form-group" style="display: none">
-    <form id="viewForm" action="/bbs/${boardCd }/${param.articleNo }" method="get">
+    <form id="viewForm" action="${ctx}/bbs/${boardCd }/${param.articleNo }" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <form id="listForm" action="/bbs/${boardCd }" method="get">
+    <form id="listForm" action="${ctx}/bbs/${boardCd }" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>

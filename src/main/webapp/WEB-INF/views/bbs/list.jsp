@@ -11,11 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Keywords" content="<spring:message code="bbs.list.keys" />" />
 <meta name="Description" content="<spring:message code="bbs.list.desc" />" />
-<link rel="stylesheet" href="/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/print.css" type="text/css" />
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/js/commons.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <script>
 $(document).ready(function() {
     $('#paging a').click(function(e) {
@@ -101,7 +101,7 @@ function createCookie(name, value, days) {
             <td>
                 <a href="#" title="${article.articleNo }" class="view-link">${article.title }</a>
                 <c:if test="${article.attachFileNum > 0 }">
-                    <img src="/resources/images/attach.png" alt="<spring:message code="attach.file" />" style="vertical-align: middle;" />
+                    <img src="<%=request.getContextPath() %>/resources/images/attach.png" alt="<spring:message code="attach.file" />" style="vertical-align: middle;" />
                 </c:if>
                 <c:if test="${article.commentNum > 0 }">
                     <span class="bbs-strong">[${article.commentNum }]</span>
@@ -160,15 +160,16 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
 </form>
 
 <div id="form-group">
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
     <form id="listForm" method="get">
         <input type="hidden" name="page" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <form id="viewForm" action="/bbs/${boardCd }/" method="get">
+    <form id="viewForm" action="${ctx}/bbs/${boardCd }/" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
-    <form id="writeForm" action="/bbs/${boardCd }/new" method="get">
+    <form id="writeForm" action="${ctx}/bbs/${boardCd }/new" method="get">
         <input type="hidden" name="page" value="${param.page }" />
         <input type="hidden" name="searchWord" value="${param.searchWord }" />
     </form>
