@@ -10,6 +10,5 @@ public class WebContants {
 	//Line Separator
 	public final static String LINE_SEPARATOR = System.getProperty("line.separator");
 	//Upload path
-	public final static String UPLOAD_PATH = "/opt/upload/";
-
+	public final static String UPLOAD_PATH = "C:/opt/upload/";
 }

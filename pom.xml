@@ -13,10 +13,8 @@
 
 <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<maven.compiler.source>17</maven.compiler.source>
-	<maven.compiler.target>17</maven.compiler.target>
-	<spring.version>6.2.2</spring.version>
-	<spring.security.version>6.4.2</spring.security.version>
+	<maven.compiler.source>21</maven.compiler.source>
+	<maven.compiler.target>21</maven.compiler.target>
 </properties>
 
 <dependencyManagement>
@@ -25,7 +23,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-framework-bom</artifactId>
-			<version>${spring.version}</version>
+			<version>6.2.3</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
@@ -33,7 +31,7 @@
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-bom</artifactId>
-		    <version>${spring.security.version}</version>
+		    <version>6.4.2</version>
 		    <type>pom</type>
 			<scope>import</scope>		    
 		</dependency>
