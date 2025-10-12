@@ -37,7 +37,7 @@ sudo ls -l /dev/disk/by-id/*usb*
 sudo dd if=<strong>filename.iso</strong> of=<strong>/dev/sdb</strong> bs=4M; sync
 </pre>
 
-<div th:replace="~{articles/commons/oracle-11g-xe-install-on-ubuntu :: content}"></div>
+<%@ include file="../../commons/oracle-11g-xe-install-on-ubuntu.jsp" %>
 
 <h3>SCOTT 계정 만들기</h3>
 
@@ -339,7 +339,7 @@ Maven - Update Project Configuration을 차례로 선택한다.
 관리자 계정으로 접속해(sqlplus sys as sysdba) 다음 SQL 문을 실행한다.
 </p>
 
-<div th:replace="~{articles/commons/database-design :: content}"></div>
+<%@ include file="../../commons/database-design.jsp" %>
 
 <h4>MySQL 테이블 생성</h4>
 
@@ -356,7 +356,7 @@ mysql --user=root --password mysql
 다음 명령을 실행한다.
 </p>
 
-<div th:replace="~{articles/commons/database-design-mysql :: content}"></div>
+<%@ include file="../../commons/database-design-mysql.jsp" %>
 
 <h4>1. 톰캣에서 테스트</h4>
 

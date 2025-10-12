@@ -5,8 +5,7 @@
 
 <h1>우분투 18.04에 자바 개발 환경 만들기</h1>
 
-<!-- 오라클 설치 -->
-<div th:replace="~{articles/commons/oracle-11g-xe-install-on-ubuntu :: content}"></div>
+<%@ include file="../../commons/oracle-11g-xe-install-on-ubuntu.jsp" %>
 
 <h4>SCOTT 계정 만들기</h4>
 

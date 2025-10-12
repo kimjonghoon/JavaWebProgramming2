@@ -5,8 +5,7 @@
 
 <h1>Java Development Environment on Ubutnu 18.04</h1>
 
-<!-- Oracle Install -->
-<div th:replace="~{articles/commons/oracle-11g-xe-install-on-ubuntu_en :: content}"></div>
+<%@ include file="../../commons/oracle-11g-xe-install-on-ubuntu_en.jsp" %>
 
 <h4>SCOTT Account</h4>
 

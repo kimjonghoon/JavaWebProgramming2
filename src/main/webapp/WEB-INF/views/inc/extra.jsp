@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <a href="https://cloud.google.com"><img src="<%=request.getContextPath() %>/resources/images/gcp-logo.png" alt="Google Cloud Platform"></a>
 <a href="https://drive.google.com/drive/my-drive"><img src="<%=request.getContextPath() %>/resources/images/google-drive.png" alt="Google Drive"></a>

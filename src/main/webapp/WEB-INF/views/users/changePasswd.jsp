@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html lang="<spring:message code="lang" />">
 <head>
@@ -74,20 +75,20 @@ $(document).ready(function () {
     ${user.name }<br />
     ${user.mobile }<br />
 </div>
-<sf:form id="changePasswordForm" action="changePasswd" method="post" modelAttribute="password">
+<form:form id="changePasswordForm" action="changePasswd" method="post" modelAttribute="password">
     <table>
         <tr>
             <td><spring:message code="changePasswd.current.passwd" /></td>
             <td>
-                <sf:password path="currentPasswd" /><br />
-                <sf:errors path="currentPasswd" cssClass="error" />
+                <form:password path="currentPasswd" /><br />
+                <form:errors path="currentPasswd" cssClass="error" />
             </td>
         </tr>
         <tr>
             <td><spring:message code="changePasswd.new.passwd" /></td>
             <td>
-                <sf:password path="newPasswd" /><br />
-                <sf:errors path="newPasswd" cssClass="error" />
+                <form:password path="newPasswd" /><br />
+                <form:errors path="newPasswd" cssClass="error" />
             </td>
         </tr>
         <tr>
@@ -98,7 +99,7 @@ $(document).ready(function () {
             <td colspan="2"><input type="submit" value="<spring:message code="submit" />" /></td>
         </tr>
     </table>
-</sf:form>
+</form:form>
 <!-- content end -->
 		</div>
 	</div>

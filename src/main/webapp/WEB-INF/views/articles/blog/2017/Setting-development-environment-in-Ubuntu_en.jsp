@@ -36,7 +36,7 @@ sudo dd if=<strong>filename.iso</strong> of=<strong>/dev/sdb</strong> bs=4M; syn
 Replace <b>filename.iso</b> with the downloaded Ubuntu ISO file name and replace <b>/dev/sdb</b> with your USB device.
 </p>
 
-<div th:replace="~{articles/commons/oracle-11g-xe-install-on-ubuntu_en :: content}"></div>
+<%@ include file="../../commons/oracle-11g-xe-install-on-ubuntu_en.jsp" %>
 
 <h3>Create SCOTT account</h3>
 
@@ -327,7 +327,7 @@ Select the project in the Package Explorer view, click the mouse's right button 
 Connect to the system account (sqlplus sys as sysdba) and execute the following SQL statements.
 </p>
 
-<div th:replace="~{articles/commons/database-design :: content}"></div>
+<%@ include file="../../commons/database-design.jsp" %>
 
 <h4>Create tables (If you use MYSQL)</h4>
 
@@ -343,7 +343,7 @@ mysql --user=root --password mysql
 Execute the following commands:
 </p>
 
-<div th:replace="~{articles/commons/database-design-mysql :: content}"></div>
+<%@ include file="../../commons/database-design-mysql.jsp" %>
 
 <h4>Test on Tomcat</h4>
 
