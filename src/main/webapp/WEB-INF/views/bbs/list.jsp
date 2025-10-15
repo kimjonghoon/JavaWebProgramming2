@@ -124,13 +124,12 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
 </table>
 
 <div id="paging">
-
-    <c:if test="${prevPage > 0 }">
+    <c:if test="${firstMinusOne > 0 }">
         <a href="#" title="1">[<spring:message code="first" />]</a>
-        <a href="#" title="${prevPage }">[<spring:message code="prev" />]</a>
+        <a href="#" title="${firstMinusOne }">[<spring:message code="prev" />]</a>
     </c:if>
 
-    <c:forEach var="i" begin="${firstPage }" end="${lastPage }" varStatus="stat">
+    <c:forEach var="i" begin="${first }" end="${last }" varStatus="stat">
         <c:choose>
             <c:when test="${param.page == i}">
                 <span class="bbs-strong">${i }</span>
@@ -141,9 +140,9 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
         </c:choose>
     </c:forEach>
 
-    <c:if test="${nextPage > 0 }">
-        <a href="#" title="${nextPage }">[<spring:message code="next" />]</a>
-        <a href="#" title="${totalPage }">[<spring:message code="last" />]</a>
+    <c:if test="${lastPlusOne > 0 }">
+        <a href="#" title="${lastPlusOne }">[<spring:message code="next" />]</a>
+        <a href="#" title="${totalPages }">[<spring:message code="last" />]</a>
     </c:if>
 
 </div>

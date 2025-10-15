@@ -2,51 +2,51 @@ package net.java_school.commons;
 
 public class Paginator {
 
-    public NumbersForPaging getNumbersForPaging(int totalRecord, int page, int numPerPage, int pagePerBlock) {
-        int totalPage = totalRecord / numPerPage;
-        if (totalRecord % numPerPage != 0) {
-            totalPage++;
-        }
+	public PagingNumbers getPagingNumbers(int totalRecords, int page, int recordsPerPage, int pagesPerGroup) {
+		int totalPages = totalRecords / recordsPerPage;
+		
+		if (totalRecords % recordsPerPage != 0) {
+			totalPages++;
+		}
 
-        int totalBlock = totalPage / pagePerBlock;
-        if (totalPage % pagePerBlock != 0) {
-            totalBlock++;
-        }
+		int totalGroups = totalPages / pagesPerGroup;
+		
+		if (totalPages % pagesPerGroup != 0) {
+			totalGroups++;
+		}
 
-        int block = page / pagePerBlock;
-        if (page % pagePerBlock != 0) {
-            block++;
-        }
+		int group = page / pagesPerGroup;
+		if (page % pagesPerGroup != 0) {
+			group++;
+		}
 
-        int firstPage = (block - 1) * pagePerBlock + 1;
-        int lastPage = block * pagePerBlock;
+		int first = (group - 1) * pagesPerGroup + 1;
+		int last = group * pagesPerGroup;
 
-        int prevPage = 0;
-        if (block > 1) {
-            prevPage = firstPage - 1;
-        }
+		int firstMinusOne = 0;
+		if (group > 1) {
+			firstMinusOne = first - 1;
+		}
 
-        int nextPage = 0;
-        if (block < totalBlock) {
-            nextPage = lastPage + 1;
-        }
-        if (block >= totalBlock) {
-            lastPage = totalPage;
-        }
+		int lastPlusOne = 0;
+		if (group < totalGroups) {
+			lastPlusOne = last + 1;
+		}
+		if (group >= totalGroups) {
+			last = totalPages;
+		}
 
-        int listItemNo = totalRecord - (page - 1) * numPerPage;
+		int listItemNo = totalRecords - (page - 1) * recordsPerPage;
 
-        NumbersForPaging numbers = new NumbersForPaging();
+		PagingNumbers numbers = new PagingNumbers();
 
-        numbers.setTotalPage(totalPage);
-        numbers.setFirstPage(firstPage);
-        numbers.setLastPage(lastPage);
-        numbers.setPrevBlock(prevPage);
-        numbers.setNextBlock(nextPage);
-        numbers.setListItemNo(listItemNo);
-        numbers.setTotalPage(totalPage);
+		numbers.setTotalPages(totalPages);
+		numbers.setFirst(first);
+		numbers.setLast(last);
+		numbers.setFirstMinusOne(firstMinusOne);
+		numbers.setLastPlusOne(lastPlusOne);
+		numbers.setListItemNo(listItemNo);
 
-        return numbers;
-    }
-
+		return numbers;
+	}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 import net.java_school.board.Board;
 import net.java_school.board.BoardService;
-import net.java_school.commons.NumbersForPaging;
+import net.java_school.commons.PagingNumbers;
 import net.java_school.commons.Paginator;
 import net.java_school.commons.WebContants;
 import net.java_school.user.User;
@@ -39,17 +39,17 @@ public class AdminController extends Paginator {
 
 		if (page == null) return "redirect:/admin?page=1";
 
-		int numPerPage = 20;
-		int pagePerBlock = 10;
+		int recordsPerPage = 20;
+		int pagesPerGroup = 10;
 
-		int totalRecord = userService.getTotalCount(search);
-		NumbersForPaging numbers = this.getNumbersForPaging(totalRecord, page, numPerPage, pagePerBlock);
+		int totalRecords = userService.getTotalCount(search);
+		PagingNumbers numbers = this.getPagingNumbers(totalRecords, page, recordsPerPage, pagesPerGroup);
 
 		HashMap<String, String> map = new HashMap<>();
 
 		//Oracle start
-		Integer startRecord = (page - 1) * numPerPage + 1;
-		Integer endRecord = page * numPerPage;
+		Integer startRecord = (page - 1) * recordsPerPage + 1;
+		Integer endRecord = page * recordsPerPage;
 		map.put("search", search);
 		map.put("startRecord", startRecord.toString());
 		map.put("endRecord", endRecord.toString());
@@ -57,7 +57,7 @@ public class AdminController extends Paginator {
 
 /*
 		//MySQL and MariaDB start
-		Integer offset = (page - 1) * numPerPage;
+		Integer offset = (page - 1) * recordsPerPage;
 		Integer rowCount = numPerPage;
 		map.put("search", search);
 		map.put("offset", offset.toString());
@@ -67,17 +67,17 @@ public class AdminController extends Paginator {
 		List<User> list = userService.getAllUser(map);
 
 		Integer listItemNo = numbers.getListItemNo();
-		Integer prev = numbers.getPrevBlock();
-		Integer next = numbers.getNextBlock();
-		Integer firstPage = numbers.getFirstPage();
-		Integer lastPage = numbers.getLastPage();
+		Integer firstMinusOne = numbers.getFirstMinusOne();
+		Integer lastPlusOne = numbers.getLastPlusOne();
+		Integer first = numbers.getFirst();
+		Integer last = numbers.getLast();
 
 		model.addAttribute("list", list);
 		model.addAttribute("listItemNo", listItemNo);
-		model.addAttribute("prev", prev);
-		model.addAttribute("next", next);
-		model.addAttribute("firstPage", firstPage);
-		model.addAttribute("lastPage", lastPage);
+		model.addAttribute("firstMinusOne", firstMinusOne);
+		model.addAttribute("lastPlusOne", lastPlusOne);
+		model.addAttribute("first", first);
+		model.addAttribute("last", last);
 
 		return "admin/index";
 	}

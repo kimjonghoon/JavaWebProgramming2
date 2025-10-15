@@ -29,7 +29,7 @@ public interface BoardService {
     public List<Article> getArticleList(HashMap<String, String> hashmap);
 
     //총 레코드 수
-    public int getTotalRecord(String boardCd, String searchWord);
+    public int getTotalRecords(String boardCd, String searchWord);
 
     //글쓰기
     @PreAuthorize("hasAnyRole('ADMIN','USER')")

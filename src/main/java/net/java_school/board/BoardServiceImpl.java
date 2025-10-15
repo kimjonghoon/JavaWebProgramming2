@@ -40,7 +40,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int getTotalRecord(String boardCd, String searchWord) {
+    public int getTotalRecords(String boardCd, String searchWord) {
         HashMap<String, String> hashmap = new HashMap<>();
         hashmap.put("boardCd", boardCd);
         hashmap.put("searchWord", searchWord);

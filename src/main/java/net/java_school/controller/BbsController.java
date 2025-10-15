@@ -21,7 +21,7 @@ import net.java_school.board.Article;
 import net.java_school.board.AttachFile;
 import net.java_school.board.Board;
 import net.java_school.board.BoardService;
-import net.java_school.commons.NumbersForPaging;
+import net.java_school.commons.PagingNumbers;
 import net.java_school.commons.Paginator;
 import net.java_school.commons.WebContants;
 
@@ -71,9 +71,9 @@ public class BbsController extends Paginator {
 
 		int pagePerBlock = 10;
 
-		int totalRecord = boardService.getTotalRecord(boardCd, searchWord);
+		int totalRecords = boardService.getTotalRecords(boardCd, searchWord);
 
-		NumbersForPaging numbers = this.getNumbersForPaging(totalRecord, page, numPerPage, pagePerBlock);
+		PagingNumbers numbers = this.getPagingNumbers(totalRecords, page, numPerPage, pagePerBlock);
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -98,19 +98,19 @@ public class BbsController extends Paginator {
 		List<Article> list = boardService.getArticleList(map);
 
 		Integer listItemNo = numbers.getListItemNo();
-		Integer prevPage = numbers.getPrevBlock();
-		Integer nextPage = numbers.getNextBlock();
-		Integer firstPage = numbers.getFirstPage();
-		Integer lastPage = numbers.getLastPage();
-		Integer totalPage = numbers.getTotalPage();
+		Integer firstMinusOne = numbers.getFirstMinusOne();
+		Integer lastPlusOne = numbers.getLastPlusOne();
+		Integer first = numbers.getFirst();
+		Integer last = numbers.getLast();
+		Integer totalPages = numbers.getTotalPages();
 
 		model.addAttribute("list", list);
 		model.addAttribute("listItemNo", listItemNo);
-		model.addAttribute("prevPage", prevPage);
-		model.addAttribute("nextPage", nextPage);
-		model.addAttribute("firstPage", firstPage);
-		model.addAttribute("lastPage", lastPage);
-		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("firstMinusOne", firstMinusOne);
+		model.addAttribute("lastPlusOne", lastPlusOne);
+		model.addAttribute("first", first);
+		model.addAttribute("last", last);
+		model.addAttribute("totalPages", totalPages);
 
 		String lang = locale.getLanguage();
 		List<Board> boards = boardService.getBoards();
@@ -182,11 +182,11 @@ public class BbsController extends Paginator {
 		model.addAttribute("prevArticle", prevArticle);
 		//model.addAttribute("commentList", commentList);
 
-		int pagePerBlock = 10;
+		int pagesPerGroup = 10;
 
-		int totalRecord = boardService.getTotalRecord(boardCd, searchWord);
+		int totalRecord = boardService.getTotalRecords(boardCd, searchWord);
 
-		NumbersForPaging numbers = this.getNumbersForPaging(totalRecord, page, numPerPage, pagePerBlock);
+		PagingNumbers numbers = this.getPagingNumbers(totalRecord, page, numPerPage, pagesPerGroup);
 
 		HashMap<String, String> map = new HashMap<>();
 		map.put("boardCd", boardCd);
@@ -209,19 +209,19 @@ public class BbsController extends Paginator {
 		List<Article> list = boardService.getArticleList(map);
 
 		int listItemNo = numbers.getListItemNo();
-		int prevPage = numbers.getPrevBlock();
-		int nextPage = numbers.getNextBlock();
-		int firstPage = numbers.getFirstPage();
-		int lastPage = numbers.getLastPage();
-		int totalPage = numbers.getTotalPage();
+		int firstMinusOne = numbers.getFirstMinusOne();
+		int lastPlusOne = numbers.getLastPlusOne();
+		int first = numbers.getFirst();
+		int last = numbers.getLast();
+		int totalPages = numbers.getTotalPages();
 
 		model.addAttribute("list", list);
 		model.addAttribute("listItemNo", listItemNo);
-		model.addAttribute("prevPage", prevPage);
-		model.addAttribute("firstPage", firstPage);
-		model.addAttribute("lastPage", lastPage);
-		model.addAttribute("nextPage", nextPage);
-		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("firstMinusOne", firstMinusOne);
+		model.addAttribute("first", first);
+		model.addAttribute("last", last);
+		model.addAttribute("lastPlusOne", lastPlusOne);
+		model.addAttribute("totalPages", totalPages);
 		model.addAttribute("boardName", boardName);
 
 		List<Board> boards = boardService.getBoards();
