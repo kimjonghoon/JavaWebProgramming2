@@ -58,7 +58,7 @@ $(document).ready(function() {
     </tr>
     <c:forEach var="user" items="${list }" varStatus="status">
         <tr>
-            <td>${listItemNo - status.index }</td>
+            <td>${pagingNumbers.listItemNo - status.index }</td>
             <td>${user.name }</td>
             <td>${user.email }</td>
             <td>${user.mobile }</td>
@@ -71,11 +71,11 @@ $(document).ready(function() {
     </c:forEach>
 </table>
 <div id="paging">
-    <c:if test="${prev > 0 }">
+    <c:if test="${pagingNumbers.lastOfPrevGroup > 0 }">
         <a href="<%=request.getContextPath() %>/admin?page=1">1</a>
-        <a href="<%=request.getContextPath() %>/admin?page=${prev }&search=${search }">[ <spring:message code="prev" /> ]</a>
+        <a href="<%=request.getContextPath() %>/admin?page=${pagingNumbers.lastOfPrevGroup }&search=${search }">[ <spring:message code="prev" /> ]</a>
     </c:if>
-    <c:forEach var="i" begin="${firstPage }" end="${lastPage }" varStatus="stat">
+    <c:forEach var="i" begin="${pagingNumbers.firstPage }" end="${pagingNumbers.lastPage }" varStatus="stat">
         <c:choose>
             <c:when test="${param.page == i}">
                 <span class="bbs-strong">${i }</span>
@@ -85,9 +85,9 @@ $(document).ready(function() {
             </c:otherwise>
         </c:choose>
     </c:forEach>
-    <c:if test="${next > 0 }">
-        <a href="<%=request.getContextPath() %>/admin?page=${next }&search=${search }">[ <spring:message code="next" /> ]</a>
-        <a href="<%=request.getContextPath() %>/admin?page=${totalPage }">[ <spring:message code="last" /> ]</a>
+    <c:if test="${pagingNumbers.firstOfNextGroup > 0 }">
+        <a href="<%=request.getContextPath() %>/admin?page=${pagingNumbers.firstOfNextGroup }&search=${search }">[ <spring:message code="next" /> ]</a>
+        <a href="<%=request.getContextPath() %>/admin?page=${pagingNumbers.totalPages }">[ <spring:message code="last" /> ]</a>
     </c:if>
 </div>
 

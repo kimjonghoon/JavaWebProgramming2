@@ -67,7 +67,7 @@ public class AdminController extends Paginator {
 		List<User> list = userService.getAllUser(map);
 
 		model.addAttribute("list", list);
-		model.addAttribute("pagingNumber", pagingNumbers);
+		model.addAttribute("pagingNumbers", pagingNumbers);
 
 		return "admin/index";
 	}
