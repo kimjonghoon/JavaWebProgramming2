@@ -101,8 +101,9 @@ public class BbsController extends Paginator {
 		model.addAttribute("pagingNumbers", pagingNumbers);
 
 		String lang = locale.getLanguage();
-		List<Board> boards = boardService.getBoards();
 		String boardName = this.getBoardName(boardCd, lang);
+		List<Board> boards = boardService.getBoards();
+		
 		model.addAttribute("boards", boards);
 		model.addAttribute("boardName", boardName);
 		model.addAttribute("boardCd", boardCd);
