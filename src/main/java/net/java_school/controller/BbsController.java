@@ -73,7 +73,7 @@ public class BbsController extends Paginator {
 
 		int totalRecords = boardService.getTotalRecords(boardCd, searchWord);
 
-		PagingNumbers numbers = this.getPagingNumbers(totalRecords, page, numPerPage, pagePerBlock);
+		PagingNumbers pagingNumbers = this.getPagingNumbers(totalRecords, page, numPerPage, pagePerBlock);
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -97,20 +97,8 @@ public class BbsController extends Paginator {
 */
 		List<Article> list = boardService.getArticleList(map);
 
-		Integer listItemNo = numbers.getListItemNo();
-		Integer firstMinusOne = numbers.getFirstMinusOne();
-		Integer lastPlusOne = numbers.getLastPlusOne();
-		Integer first = numbers.getFirst();
-		Integer last = numbers.getLast();
-		Integer totalPages = numbers.getTotalPages();
-
 		model.addAttribute("list", list);
-		model.addAttribute("listItemNo", listItemNo);
-		model.addAttribute("firstMinusOne", firstMinusOne);
-		model.addAttribute("lastPlusOne", lastPlusOne);
-		model.addAttribute("first", first);
-		model.addAttribute("last", last);
-		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("pagingNumbers", pagingNumbers);
 
 		String lang = locale.getLanguage();
 		List<Board> boards = boardService.getBoards();
@@ -184,9 +172,9 @@ public class BbsController extends Paginator {
 
 		int pagesPerGroup = 10;
 
-		int totalRecord = boardService.getTotalRecords(boardCd, searchWord);
+		int totalRecords = boardService.getTotalRecords(boardCd, searchWord);
 
-		PagingNumbers numbers = this.getPagingNumbers(totalRecord, page, numPerPage, pagesPerGroup);
+		PagingNumbers pagingNumbers = this.getPagingNumbers(totalRecords, page, numPerPage, pagesPerGroup);
 
 		HashMap<String, String> map = new HashMap<>();
 		map.put("boardCd", boardCd);
@@ -208,20 +196,8 @@ public class BbsController extends Paginator {
 */
 		List<Article> list = boardService.getArticleList(map);
 
-		int listItemNo = numbers.getListItemNo();
-		int firstMinusOne = numbers.getFirstMinusOne();
-		int lastPlusOne = numbers.getLastPlusOne();
-		int first = numbers.getFirst();
-		int last = numbers.getLast();
-		int totalPages = numbers.getTotalPages();
-
 		model.addAttribute("list", list);
-		model.addAttribute("listItemNo", listItemNo);
-		model.addAttribute("firstMinusOne", firstMinusOne);
-		model.addAttribute("first", first);
-		model.addAttribute("last", last);
-		model.addAttribute("lastPlusOne", lastPlusOne);
-		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("pagingNumbers", pagingNumbers);
 		model.addAttribute("boardName", boardName);
 
 		List<Board> boards = boardService.getBoards();

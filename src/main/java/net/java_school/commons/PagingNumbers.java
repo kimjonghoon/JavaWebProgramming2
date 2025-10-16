@@ -3,40 +3,41 @@ package net.java_school.commons;
 public class PagingNumbers {
 
 	private int totalPages;
-	private int first;
-	private int last;
-	private int firstMinusOne;
-	private int lastPlusOne;
+	private int firstPage;
+	private int lastPage;
+	private int lastOfPrevGroup;
+	private int firstOfNextGroup;
 	private int listItemNo;
+	
 	public int getTotalPages() {
 		return totalPages;
 	}
 	public void setTotalPages(int totalPages) {
 		this.totalPages = totalPages;
 	}
-	public int getFirst() {
-		return first;
+	public int getFirstPage() {
+		return firstPage;
 	}
-	public void setFirst(int first) {
-		this.first = first;
+	public void setFirstPage(int firstPage) {
+		this.firstPage = firstPage;
 	}
-	public int getLast() {
-		return last;
+	public int getLastPage() {
+		return lastPage;
 	}
-	public void setLast(int last) {
-		this.last = last;
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
 	}
-	public int getFirstMinusOne() {
-		return firstMinusOne;
+	public int getLastOfPrevGroup() {
+		return lastOfPrevGroup;
 	}
-	public void setFirstMinusOne(int firstMinusOne) {
-		this.firstMinusOne = firstMinusOne;
+	public void setLastOfPrevGroup(int lastOfPrevGroup) {
+		this.lastOfPrevGroup = lastOfPrevGroup;
 	}
-	public int getLastPlusOne() {
-		return lastPlusOne;
+	public int getFirstOfNextGroup() {
+		return firstOfNextGroup;
 	}
-	public void setLastPlusOne(int lastPlusOne) {
-		this.lastPlusOne = lastPlusOne;
+	public void setFirstOfNextGroup(int firstOfNextGroup) {
+		this.firstOfNextGroup = firstOfNextGroup;
 	}
 	public int getListItemNo() {
 		return listItemNo;

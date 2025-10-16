@@ -43,7 +43,7 @@ public class AdminController extends Paginator {
 		int pagesPerGroup = 10;
 
 		int totalRecords = userService.getTotalCount(search);
-		PagingNumbers numbers = this.getPagingNumbers(totalRecords, page, recordsPerPage, pagesPerGroup);
+		PagingNumbers pagingNumbers = this.getPagingNumbers(totalRecords, page, recordsPerPage, pagesPerGroup);
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -66,18 +66,8 @@ public class AdminController extends Paginator {
 */
 		List<User> list = userService.getAllUser(map);
 
-		Integer listItemNo = numbers.getListItemNo();
-		Integer firstMinusOne = numbers.getFirstMinusOne();
-		Integer lastPlusOne = numbers.getLastPlusOne();
-		Integer first = numbers.getFirst();
-		Integer last = numbers.getLast();
-
 		model.addAttribute("list", list);
-		model.addAttribute("listItemNo", listItemNo);
-		model.addAttribute("firstMinusOne", firstMinusOne);
-		model.addAttribute("lastPlusOne", lastPlusOne);
-		model.addAttribute("first", first);
-		model.addAttribute("last", last);
+		model.addAttribute("pagingNumber", pagingNumbers);
 
 		return "admin/index";
 	}

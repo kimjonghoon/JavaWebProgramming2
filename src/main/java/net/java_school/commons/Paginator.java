@@ -16,24 +16,29 @@ public class Paginator {
 		}
 
 		int group = page / pagesPerGroup;
+		
 		if (page % pagesPerGroup != 0) {
 			group++;
 		}
 
-		int first = (group - 1) * pagesPerGroup + 1;
-		int last = group * pagesPerGroup;
+		int firstPage = (group - 1) * pagesPerGroup + 1;
+		
+		int lastPage = group * pagesPerGroup;
 
-		int firstMinusOne = 0;
+		int lastOfPrevGroup = 0;
+		
 		if (group > 1) {
-			firstMinusOne = first - 1;
+			lastOfPrevGroup = firstPage - 1;
 		}
 
-		int lastPlusOne = 0;
+		int firstOfNextGroup = 0;
+		
 		if (group < totalGroups) {
-			lastPlusOne = last + 1;
+			firstOfNextGroup = lastPage + 1;
 		}
+		
 		if (group >= totalGroups) {
-			last = totalPages;
+			lastPage = totalPages;
 		}
 
 		int listItemNo = totalRecords - (page - 1) * recordsPerPage;
@@ -41,10 +46,10 @@ public class Paginator {
 		PagingNumbers numbers = new PagingNumbers();
 
 		numbers.setTotalPages(totalPages);
-		numbers.setFirst(first);
-		numbers.setLast(last);
-		numbers.setFirstMinusOne(firstMinusOne);
-		numbers.setLastPlusOne(lastPlusOne);
+		numbers.setFirstPage(firstPage);
+		numbers.setLastPage(lastPage);
+		numbers.setLastOfPrevGroup(lastOfPrevGroup);
+		numbers.setFirstOfNextGroup(firstOfNextGroup);
 		numbers.setListItemNo(listItemNo);
 
 		return numbers;
