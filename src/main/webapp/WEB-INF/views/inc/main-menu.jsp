@@ -13,7 +13,4 @@
     <li><a href="<%=request.getContextPath() %>/google-app-engine/building-gae-projects-with-maven">Google Cloud</a></li>
     <li><a href="<%=request.getContextPath() %>/blog">Blog</a></li>
     <li><a href="<%=request.getContextPath() %>/bbs/chat?page=1">BBS</a></li>
-    <security:authorize access="hasRole('ROLE_ADMIN')">
-        <li><a href="<%=request.getContextPath() %>/admin">Admin</a></li>
-    </security:authorize>
 </ul>
