@@ -94,7 +94,7 @@ $(document).ready(function() {
     <input type="submit" value="<spring:message code="submit" />" />
     <input type="button" value="<spring:message code="list" />" id="goList" />
     <c:if test="${not empty param.articleNo }">
-    <input type="button" value="<spring:message code="back.to.article" />" id="goView" />
+    	<input type="button" value="<spring:message code="back.to.article" />" id="goView" />
     </c:if>
 </div>
 </form:form>

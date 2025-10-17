@@ -56,8 +56,8 @@ pageContext.setAttribute("english", english);
 pageContext.setAttribute("korean", korean);
 %>
 <div id="localeChangeMenu" style="float: right;position: relative;top: 7px;margin-right: 10px;">
-	<input type="button" value="English" onclick="location.href = '${english}'" />
-	<input type="button" value="Korean" onclick="location.href = '${korean }'" />
+	<a href="${english }"><button type="button">english</button></a>
+	<a href="${korean }"><button type="button">korean</button></a>
 </div>
 <form id="logoutForm" action="${ctx}/logout" method="post" style="display:none">
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
