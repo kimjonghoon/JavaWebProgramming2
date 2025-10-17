@@ -65,20 +65,20 @@ public class BbsController extends Paginator {
 			@CookieValue(name="numPerPage", defaultValue="10") Integer numPerPage,
 			@PathVariable(name="boardCd") String boardCd,
 			@RequestParam(name="page", defaultValue="1") Integer page,
-			@RequestParam(name="searchWord", defaultValue="") String searchWord,
+			@RequestParam(name="search", defaultValue="") String search,
 			Locale locale,
 			Model model) {
 
 		int pagePerBlock = 10;
 
-		int totalRecords = boardService.getTotalRecords(boardCd, searchWord);
+		int totalRecords = boardService.getTotalRecords(boardCd, search);
 
 		PagingNumbers pagingNumbers = this.getPagingNumbers(totalRecords, page, numPerPage, pagePerBlock);
 
 		HashMap<String, String> map = new HashMap<>();
 
 		map.put("boardCd", boardCd);
-		map.put("searchWord", searchWord);
+		map.put("search", search);
 
 		//Oracle start
 		Integer startRecord = (page - 1) * numPerPage + 1;
@@ -117,7 +117,7 @@ public class BbsController extends Paginator {
 			@PathVariable(name="boardCd") String boardCd,
 			@PathVariable(name="articleNo") Integer articleNo,
 			@RequestParam(name="page", defaultValue="1") Integer page,
-			@RequestParam(name="searchWord", defaultValue="") String searchWord,
+			@RequestParam(name="search", defaultValue="") String search,
 			Locale locale,
 		    HttpServletRequest req,
 		    Model model) {
@@ -141,8 +141,8 @@ public class BbsController extends Paginator {
 
 		Article article = boardService.getArticle(articleNo);
 		List<AttachFile> attachFileList = boardService.getAttachFileList(articleNo);
-		Article nextArticle = boardService.getNextArticle(articleNo, boardCd, searchWord);
-		Article prevArticle = boardService.getPrevArticle(articleNo, boardCd, searchWord);
+		Article nextArticle = boardService.getNextArticle(articleNo, boardCd, search);
+		Article prevArticle = boardService.getPrevArticle(articleNo, boardCd, search);
 		//List<Comment> commentList = boardService.getCommentList(articleNo);
 		String boardName = this.getBoardName(boardCd, lang);
 
@@ -173,13 +173,13 @@ public class BbsController extends Paginator {
 
 		int pagesPerGroup = 10;
 
-		int totalRecords = boardService.getTotalRecords(boardCd, searchWord);
+		int totalRecords = boardService.getTotalRecords(boardCd, search);
 
 		PagingNumbers pagingNumbers = this.getPagingNumbers(totalRecords, page, numPerPage, pagesPerGroup);
 
 		HashMap<String, String> map = new HashMap<>();
 		map.put("boardCd", boardCd);
-		map.put("searchWord", searchWord);
+		map.put("search", search);
 
 		//Oracle start
 		Integer startRecord = (page - 1) * numPerPage + 1;
@@ -262,10 +262,10 @@ public class BbsController extends Paginator {
 			file.setEmail(principal.getName());
 			boardService.addAttachFile(file);
 
-			File dir = new File(WebContants.UPLOAD_PATH + principal.getName());
+			File dir = new File(WebContants.UPLOAD_PATH.value() + principal.getName());
 			if (!dir.exists()) dir.mkdirs();
 
-			Path path = Paths.get(WebContants.UPLOAD_PATH + principal.getName());
+			Path path = Paths.get(WebContants.UPLOAD_PATH.value() + principal.getName());
 
 			try (InputStream inputStream = attachFile.getInputStream()) {
 				Files.copy(inputStream, path.resolve(attachFile.getOriginalFilename()),
@@ -305,7 +305,7 @@ public class BbsController extends Paginator {
 			@PathVariable(name="boardCd") String boardCd,
 			@PathVariable(name="articleNo") Integer articleNo,
 			@RequestParam(name="page") Integer page,
-			@RequestParam(name="searchWord") String searchWord,
+			@RequestParam(name="search") String search,
 			@RequestParam(name="attachFile", defaultValue="") MultipartFile attachFile,
 			Locale locale,
 			Model model) throws Exception {
@@ -337,10 +337,10 @@ public class BbsController extends Paginator {
 			file.setEmail(article.getEmail());
 			boardService.addAttachFile(file);
 
-			File dir = new File(WebContants.UPLOAD_PATH + email);
+			File dir = new File(WebContants.UPLOAD_PATH.value() + email);
 			if (!dir.exists()) dir.mkdirs();
 
-			Path path = Paths.get(WebContants.UPLOAD_PATH + email);
+			Path path = Paths.get(WebContants.UPLOAD_PATH.value() + email);
 
 			try (InputStream inputStream = attachFile.getInputStream()) {
 				Files.copy(inputStream, path.resolve(attachFile.getOriginalFilename()),
@@ -348,7 +348,7 @@ public class BbsController extends Paginator {
 			}
 		}
 
-		searchWord = URLEncoder.encode(searchWord, "UTF-8");
+		search = URLEncoder.encode(search, "UTF-8");
 
 		return "redirect:/bbs/"
 			+ boardCd
@@ -356,8 +356,8 @@ public class BbsController extends Paginator {
 			+ articleNo
 			+ "?page="
 			+ page
-			+ "&searchWord="
-			+ searchWord;
+			+ "&search="
+			+ search;
 	}
 
 	@DeleteMapping("/{boardCd}/{articleNo}")
@@ -365,19 +365,19 @@ public class BbsController extends Paginator {
 			@PathVariable(name="boardCd") String boardCd,
 		    @PathVariable(name="articleNo") Integer articleNo,
 		    @RequestParam(name="page") Integer page,
-		    @RequestParam(name="searchWord") String searchWord) throws Exception {
+		    @RequestParam(name="search") String search) throws Exception {
 
 		Article article = boardService.getArticle(articleNo);
 		boardService.removeArticle(article);
 
-		searchWord = URLEncoder.encode(searchWord, "UTF-8");
+		search = URLEncoder.encode(search, "UTF-8");
 
 		return "redirect:/bbs/"
 			+ boardCd
 			+ "?page="
 			+ page
-			+ "&searchWord="
-			+ searchWord;
+			+ "&search="
+			+ search;
 	}
 
 	@DeleteMapping("deleteAttachFile")
@@ -386,12 +386,12 @@ public class BbsController extends Paginator {
 			@RequestParam(name="articleNo") Integer articleNo,
 			@RequestParam(name="boardCd") String boardCd,
 			@RequestParam(name="page") Integer page,
-			@RequestParam(name="searchWord") String searchWord) throws Exception {
+			@RequestParam(name="search") String search) throws Exception {
 
 		AttachFile attachFile = boardService.getAttachFile(attachFileNo);
 		boardService.removeAttachFile(attachFile);
 
-		searchWord = URLEncoder.encode(searchWord, "UTF-8");
+		search = URLEncoder.encode(search, "UTF-8");
 
 		return "redirect:/bbs/"
 			+ boardCd
@@ -399,7 +399,7 @@ public class BbsController extends Paginator {
 			+ articleNo
 			+ "?page="
 			+ page
-			+ "&searchWord="
-			+ searchWord;
+			+ "&search="
+			+ search;
 	}
 }

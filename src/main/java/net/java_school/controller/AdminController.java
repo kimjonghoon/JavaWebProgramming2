@@ -79,7 +79,7 @@ public class AdminController extends Paginator {
 		
 		User user = userService.getUser(email);
 		//List<String> authorities = userService.getAuthoritiesOfUser(email);
-		model.addAttribute(WebContants.USER_KEY, user);
+		model.addAttribute(WebContants.USER_KEY.value(), user);
 		//model.addAttribute("authorities", authorities);
 
 		return "admin/editAccount";

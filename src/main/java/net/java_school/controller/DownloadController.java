@@ -36,7 +36,7 @@ public class DownloadController {
 			@PathVariable(name="filename") String filename, 
 			HttpServletRequest req) throws IOException {
 
-		File file = new File(WebContants.UPLOAD_PATH + filename);
+		File file = new File(WebContants.UPLOAD_PATH.value() + filename);
 
 		InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
@@ -67,7 +67,7 @@ public class DownloadController {
 		String owner = attachFile.getEmail();
 
 		try {
-			File file = new File(WebContants.UPLOAD_PATH + owner + File.separator + filename);
+			File file = new File(WebContants.UPLOAD_PATH.value() + owner + File.separator + filename);
 
 			String filetype = filename.substring(filename.indexOf(".") + 1, filename.length());
 
