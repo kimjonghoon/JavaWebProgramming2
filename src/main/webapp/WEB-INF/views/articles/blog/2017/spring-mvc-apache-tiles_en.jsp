@@ -104,7 +104,7 @@ Source : <a href="https://github.com/kimjonghoon/tilesOnSpringMVC">https://githu
       &lt;add-attribute value="/resources/css/print.css" /&gt;
     &lt;/put-list-attribute&gt;
     &lt;put-list-attribute name="scripts"&gt;
-      &lt;add-attribute value="/resources/js/jquery-3.2.1.min.js" /&gt;
+      &lt;add-attribute value="/resources/js/jquery.js" /&gt;
       &lt;add-attribute value="/resources/js/commons.js" /&gt;
     &lt;/put-list-attribute&gt;
   &lt;/definition&gt;

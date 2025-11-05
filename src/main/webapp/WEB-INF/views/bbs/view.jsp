@@ -16,7 +16,7 @@
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath() %>/resources/images/favicon.ico" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
-<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <script>

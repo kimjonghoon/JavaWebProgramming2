@@ -179,7 +179,7 @@ Add the following code to all JSP page that shows the screen.
 </p>
 
 <pre class="prettyprint">
-&lt;script type="text/javascript" src="/js/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
 </pre>
 
 <h3>How to add CSRF token parameter when uploading files</h3>

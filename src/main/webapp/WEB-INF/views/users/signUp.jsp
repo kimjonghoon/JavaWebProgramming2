@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
-<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
 <script>
 $(document).ready(function() {

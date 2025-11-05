@@ -174,7 +174,7 @@ header.jsp에 jQuery를 사용하고 있으므로 화면을 보여주는 페이�
 </p>
 
 <pre class="prettyprint">
-&lt;script type="text/javascript" src="/js/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
 </pre>
 
 <p>

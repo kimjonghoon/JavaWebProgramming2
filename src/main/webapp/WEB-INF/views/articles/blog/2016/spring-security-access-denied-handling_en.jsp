@@ -48,7 +48,7 @@ Create a 403.jsp file and add the following method to your HomeController.
 &lt;meta charset="UTF-8" /&gt;
 &lt;title&gt;403&lt;/title&gt;
 &lt;link rel="stylesheet" href="/css/screen.css" type="text/css" /&gt;
-&lt;script type="text/javascript" src="/js/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div id="wrap"&gt;

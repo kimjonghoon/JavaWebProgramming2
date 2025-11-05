@@ -176,7 +176,7 @@ pageContext.setAttribute("korean", korean);
 &lt;form id="logoutForm" action="/logout" method="post" style="display:none"&gt;
 	&lt;input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /&gt;
 &lt;/form&gt;
-&lt;script type="text/javascript" src="/js/jquery-3.0.0.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
 
 &lt;script&gt;
 $(document).ready(function() {
