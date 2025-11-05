@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<c:set var="lang" value="<spring:message code="lang"/>"/>
+<spring:message code="lang" var="lang" />
 <!DOCTYPE html>
 <html lang="${lang }">
 <head>

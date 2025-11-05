@@ -2,21 +2,21 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<spring:message code="lang" var="lang"/>
 <!DOCTYPE html>
-<html lang="<spring:message code="lang" />">
+<html lang="${lang }">
 <head>
 <meta charset="UTF-8" />
-<title><spring:message code="admin.index.title" /></title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="Keywords" content="<spring:message code="admin.index.keys" />" />
-<meta name="Description" content="<spring:message code="admin.index.desc" />" />
-<link rel="icon" type="image/x-icon" href="<%=request.getContextPath() %>/resources/images/favicon.ico" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
-<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
+<title><spring:message code="admin.index.title"/></title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="Keywords" content="<spring:message code="admin.index.keys"/>"/>
+<meta name="Description" content="<spring:message code="admin.index.desc"/>"/>
+<link rel="icon" type="image/x-icon" href="<c:url value="/resources/images/favicon.ico"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/${lang }.css"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/screen.css"/>" type="text/css"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/print.css"/>" type="text/css"/>
+<script src="<c:url value="/resources/js/jquery.js"/>"></script>
+<script src="<c:url value="/resources/js/commons.js"/>"></script>
 <script>
 $(document).ready(function() {
     $('.del-user-link').click(function(e) {
@@ -64,7 +64,7 @@ $(document).ready(function() {
             <td>${user.mobile }</td>
             <td>${user.authorities }</td>
             <td>
-                <a href="<%=request.getContextPath() %>/admin/editAccount?email=${user.email }&page=${param.page }&search=${param.search }"><spring:message code="modify" /></a> |
+                <a href="<c:url value="/admin/editAccount?email=${user.email }&page=${param.page }&search=${param.search }"/>"><spring:message code="modify" /></a> |
                 <a href="#" title="${user.email }" class="del-user-link"><spring:message code="delete" /></a>
             </td>
         </tr>
@@ -72,8 +72,8 @@ $(document).ready(function() {
 </table>
 <div id="paging">
     <c:if test="${pagingNumbers.lastOfPrevGroup > 0 }">
-        <a href="<%=request.getContextPath() %>/admin?page=1">1</a>
-        <a href="<%=request.getContextPath() %>/admin?page=${pagingNumbers.lastOfPrevGroup }&search=${search }">[ <spring:message code="prev" /> ]</a>
+        <a href="<c:url value="/admin?page=1"/>">1</a>
+        <a href="<c:url value="/admin?page=${pagingNumbers.lastOfPrevGroup }&search=${search }"/>">[ <spring:message code="prev" /> ]</a>
     </c:if>
     <c:forEach var="i" begin="${pagingNumbers.firstPage }" end="${pagingNumbers.lastPage }" varStatus="stat">
         <c:choose>
@@ -81,13 +81,13 @@ $(document).ready(function() {
                 <span class="bbs-strong">${i }</span>
             </c:when>
             <c:otherwise>
-                <a href="<%=request.getContextPath() %>/admin?page=${i }&search=${param.search }">[ ${i } ]</a>
+                <a href="<c:url value="/admin?page=${i }&search=${param.search }"/>">[ ${i } ]</a>
             </c:otherwise>
         </c:choose>
     </c:forEach>
     <c:if test="${pagingNumbers.firstOfNextGroup > 0 }">
-        <a href="<%=request.getContextPath() %>/admin?page=${pagingNumbers.firstOfNextGroup }&search=${search }">[ <spring:message code="next" /> ]</a>
-        <a href="<%=request.getContextPath() %>/admin?page=${pagingNumbers.totalPages }">[ <spring:message code="last" /> ]</a>
+        <a href="<c:url value="/admin?page=${pagingNumbers.firstOfNextGroup }&search=${search }"/>">[ <spring:message code="next" /> ]</a>
+        <a href="<c:url value="/admin?page=${pagingNumbers.totalPages }"/>">[ <spring:message code="last" /> ]</a>
     </c:if>
 </div>
 

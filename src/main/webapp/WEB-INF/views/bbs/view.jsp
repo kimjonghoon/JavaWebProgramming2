@@ -5,19 +5,20 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<spring:message code="lang" var="lang"/>
 <!DOCTYPE html>
-<html lang="<spring:message code="lang" />">
+<html lang="${lang }">
 <head>
 <meta charset="UTF-8" />
-<title><spring:message code="bbs.view.title" /></title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="Keywords" content="<spring:message code="bbs.view.keys" />" />
-<meta name="Description" content="<spring:message code="bbs.view.desc" />" />
-<link rel="icon" type="image/x-icon" href="<%=request.getContextPath() %>/resources/images/favicon.ico" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
-<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
+<title><spring:message code="bbs.view.title"/></title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="Keywords" content="<spring:message code="bbs.view.keys"/>"/>
+<meta name="Description" content="<spring:message code="bbs.view.desc"/>"/>
+<link rel="icon" type="image/x-icon" href="<c:url value="/resources/images/favicon.ico"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/${lang }.css"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/screen.css"/>" type="text/css"/>
+<script src="<c:url value="/resources/js/jquery.js"/>"></script>
+<script src="<c:url value="/resources/js/commons.js"/>"></script>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <script>
 function displayComments() {
@@ -394,7 +395,7 @@ $(document).on('click', '#all-comments', function (e) {
             <td style="text-align: center;">
                 <c:choose>
                     <c:when test="${articleNo == article.articleNo }">	
-                        <img src="<%=request.getContextPath() %>/resources/images/arrow.gif" alt="<spring:message code="here" />" />
+                        <img src="<c:url value="/resources/images/arrow.gif"/>" alt="<spring:message code="here"/>"/>
                     </c:when>
                     <c:otherwise>
                         ${pagingNumbers.listItemNo - status.index }
@@ -404,7 +405,7 @@ $(document).on('click', '#all-comments', function (e) {
             <td>
                 <a href="#" title="${article.articleNo }">${article.title }</a>
                 <c:if test="${article.attachFileNum > 0 }">		
-                    <img src="<%=request.getContextPath() %>/resources/images/attach.png" alt="<spring:message code="attach.file" />" style="vertical-align: middle;" />
+                    <img src="<c:url value="/resources/images/attach.png"/>" alt="<spring:message code="attach.file"/>" style="vertical-align: middle;"/>
                 </c:if>
                 <c:if test="${article.commentNum > 0 }">		
                     <span class="bbs-strong">[${article.commentNum }]</span>
@@ -452,7 +453,7 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
     <button type="button"><spring:message code="new.article" /></button>
 </div>
 
-<form id="searchForm" action="<%=request.getContextPath() %>/bbs/${boardCd }" method="get">
+<form id="searchForm" action="<c:url value="/bbs/${boardCd }"/>" method="get">
     <input type="hidden" name="page" value="1" />
     <div id="search">
         <input type="text" name="search" size="15" maxlength="30" />
