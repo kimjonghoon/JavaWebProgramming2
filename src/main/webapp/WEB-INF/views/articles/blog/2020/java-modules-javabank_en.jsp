@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.2.8</div>
 
 <h1>Modularization - JavaBank</h1>
 
 <p>
-This article covers the modularization of the <a href="<%=request.getContextPath() %>/jdbc/JavaBank">JDBC Example JavaBank</a>.
+This article covers the modularization of the <a href="<c:url value="/jdbc/JavaBank"/>">JDBC Example JavaBank</a>.
 </p>
 
 <p>
@@ -385,9 +386,9 @@ java -cp $CP -p jars:out \
 
 <span id="related-articles">Related Articles</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/jdbc/JavaBank">JavaBank</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/java-9-modules">Java 9 Modules</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2020/java-modules-javabank">Modularization - JavaBank</a></li>
+	<li><a href="<c:url value="/jdbc/JavaBank"/>">JavaBank</a></li>
+	<li><a href="<c:url value="/blog/2019/java-9-modules"/>">Java 9 Modules</a></li>
+	<li><a href="<c:url value="/blog/2020/java-modules-javabank"/>">Modularization - JavaBank</a></li>
 </ul>
 
 <span id="refer">References</span>

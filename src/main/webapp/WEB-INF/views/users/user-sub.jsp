@@ -12,15 +12,15 @@
 <ul>
     <c:choose>
         <c:when test="${empty check}">
-            <li><a href="<%=request.getContextPath() %>/users/login"><spring:message code="login" /></a></li>
-            <li><a href="<%=request.getContextPath() %>/users/signUp"><spring:message code="signup" /></a></li>
+            <li><a href="<c:url value="/users/login"/>"><spring:message code="login" /></a></li>
+            <li><a href="<c:url value="/users/signUp"/>"><spring:message code="signup" /></a></li>
             <li><a href="#"><spring:message code="forgot.id" /></a></li>
             <li><a href="#"><spring:message code="forgot.pw" /></a></li>
         </c:when>
         <c:otherwise>
-            <li><a href="<%=request.getContextPath() %>/users/editAccount"><spring:message code="modify.account" /></a></li>
-            <li><a href="<%=request.getContextPath() %>/users/changePasswd"><spring:message code="change.password" /></a></li>
-            <li><a href="<%=request.getContextPath() %>/users/bye"><spring:message code="bye" /></a></li>
+            <li><a href="<c:url value="/users/editAccount"/>"><spring:message code="modify.account" /></a></li>
+            <li><a href="<c:url value="/users/changePasswd"/>"><spring:message code="change.password" /></a></li>
+            <li><a href="<c:url value="/users/bye"/>"><spring:message code="bye" /></a></li>
         </c:otherwise>
 	</c:choose>
 </ul>

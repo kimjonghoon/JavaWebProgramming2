@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.3.30</div>
 
@@ -693,14 +694,14 @@ Start Tomcat.
 
 <span id="related-articles">Related Articles</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>">Java Install</a></li>
-	<li><a href="<%=request.getContextPath() %>/spring/building-java-projects-with-maven">Building Java Projects with Maven</a></li>
-	<li><a href="<%=request.getContextPath() %>/jsp/How-to-install-Tomcat">Tomcat Install</a></li>
-	<li><a href="<%=request.getContextPath() %>/jsp/Creating-a-new-web-application">Creating a new web application</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2017/jetty-maven-plugin">Jetty Maven Plugin</a></li>
-	<li><a href="<%=request.getContextPath() %>/jdbc/How-to-install-Oracle">Oracle Install</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/java-development-environment-on-ubuntu-18">Java Development Environment on Ubuntu 18.04</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2017/Setting-development-environment-in-Ubuntu">Development in Ubuntu</a></li>
+	<li><a href="<c:url value="/"/>">Java Install</a></li>
+	<li><a href="<c:url value="/spring/building-java-projects-with-maven"/>">Building Java Projects with Maven</a></li>
+	<li><a href="<c:url value="/jsp/How-to-install-Tomcat"/>">Tomcat Install</a></li>
+	<li><a href="<c:url value="/jsp/Creating-a-new-web-application"/>">Creating a new web application</a></li>
+	<li><a href="<c:url value="/blog/2017/jetty-maven-plugin"/>">Jetty Maven Plugin</a></li>
+	<li><a href="<c:url value="/jdbc/How-to-install-Oracle"/>">Oracle Install</a></li>
+	<li><a href="<c:url value="/blog/2019/java-development-environment-on-ubuntu-18"/>">Java Development Environment on Ubuntu 18.04</a></li>
+	<li><a href="<c:url value="/blog/2017/Setting-development-environment-in-Ubuntu"/>">Development in Ubuntu</a></li>
 </ul>
 
 </article>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.3.8</div>
 
@@ -504,8 +505,8 @@ Change the type from PUT to POST in the ajax transmission code related to commen
 
 <span id="related-articles">Related Articles</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/blog/2019/restful-url">RESTful URL</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/comment-with-restful-url">Comments with RESTful URL</a></li>
+	<li><a href="<c:url value="/blog/2019/restful-url"/>">RESTful URL</a></li>
+	<li><a href="<c:url value="/blog/2019/comment-with-restful-url"/>">Comments with RESTful URL</a></li>
 </ul>
 
 </article>

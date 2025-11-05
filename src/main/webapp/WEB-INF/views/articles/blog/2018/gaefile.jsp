@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2018.3.26</div>
 	
@@ -7,9 +8,8 @@
 
 <p>
 예제 : <a href="https://github.com/kimjonghoon/gaefile">https://github.com/kimjonghoon/gaefile</a><br />
-(<a href="<%=request.getContextPath() %>/blog/2017/ajax-fileupload">에이젝스 파일 업로드</a> 예제를 Blobstore를 이용하는 것으로 수정)
+(<a href="<c:url value="/blog/2017/ajax-fileupload"/>">에이젝스 파일 업로드</a> 예제를 Blobstore를 이용하는 것으로 수정)
 </p>
-
 
 <h3>실행 방법</h3>
 

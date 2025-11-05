@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.3.8</div>
 
@@ -517,8 +518,8 @@ web.xml에 다음 필터를 추가한다.
 
 <span id="related-articles">관련 글</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/blog/2019/restful-url">RESTful URL</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/comment-with-restful-url">게시판 댓글을 RESTful URL로 수정</a></li>
+	<li><a href="<c:url value="/blog/2019/restful-url"/>">RESTful URL</a></li>
+	<li><a href="<c:url value="/blog/2019/comment-with-restful-url"/>">게시판 댓글을 RESTful URL로 수정</a></li>
 </ul>
 
 </article>

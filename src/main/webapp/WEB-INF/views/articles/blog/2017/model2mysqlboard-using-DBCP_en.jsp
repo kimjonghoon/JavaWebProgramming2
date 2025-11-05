@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2021.12.1</div>
 	
@@ -7,7 +8,7 @@
 
 <p>
 Source: <a href="https://github.com/kimjonghoon/model2mysqlboard-using-DBCP">https://github.com/kimjonghoon/model2mysqlboard-using-DBCP</a><br />
-For more information about DBCP, See <a href="<%=request.getContextPath() %>/jdbc/Connection-Pool#DBCP">DBCP</a>.
+For more information about DBCP, See <a href="<c:url value="/jdbc/Connection-Pool#DBCP"/>">DBCP</a>.
 </p>
 
 <p>
@@ -145,7 +146,7 @@ commit;
 </pre>
 
 <p>
-For more information about family, parent, depth, indent column, See <a href="<%=request.getContextPath() %>/jsp/Thread-BBS">Bulletin Boards with replies</a>
+For more information about family, parent, depth, indent column, See <a href="<c:url value="/jsp/Thread-BBS"/>">Bulletin Boards with replies</a>
 </p>
 
 
@@ -157,10 +158,10 @@ Go to the root directory and run <strong>mvn jetty:run</strong> and visit http:/
 
 <span id="refer">References</span>
 <ul id="references">
-  <li><a href="<%=request.getContextPath() %>/jsp/Thread-BBS">Bulletin Boards with replies</a></li>
-  <li><a href="<%=request.getContextPath() %>/java/Logging#logback">Logback</a>
-  <li><a href="<%=request.getContextPath() %>/jdbc/Connection-Pool#DBCP">DBCP</a>
-  <li><a href="<%=request.getContextPath() %>/jsp/Model2">Model 2</a></li>
+  <li><a href="<c:url value="/jsp/Thread-BBS"/>">Bulletin Boards with replies</a></li>
+  <li><a href="<c:url value="/java/Logging#logback"/>">Logback</a>
+  <li><a href="<c:url value="/jdbc/Connection-Pool#DBCP"/>">DBCP</a>
+  <li><a href="<c:url value="/jsp/Model2"/>">Model 2</a></li>
 </ul>
 
 </article>

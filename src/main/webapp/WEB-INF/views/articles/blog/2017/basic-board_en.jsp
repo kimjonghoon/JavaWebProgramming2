@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2021.12.1</div>
 	
@@ -7,7 +8,7 @@
 
 <p>
 Source: <a href="https://github.com/kimjonghoon/basic-board">https://github.com/kimjonghoon/basic-board</a><br />
-This example covers the basics of the bulletin board. for more information, See <a href="<%=request.getContextPath() %>/jsp/BBS-Study">Understanding Bulletin Board Program</a>. 
+This example covers the basics of the bulletin board. for more information, See <a href="<c:url value="/jsp/BBS-Study"/>">Understanding Bulletin Board Program</a>. 
 </p>
 
 <p>
@@ -132,7 +133,7 @@ commit;
 
 <p>
 Install the Oracle JDBC driver in the local repository.<br />
-See <a href="<%=request.getContextPath() %>/spring/di#Oralce-JDBC-Driver-Dependency">Installing the Oracle JDBC driver in the local repository</a>. 
+See <a href="<c:url value="/spring/di#Oralce-JDBC-Driver-Dependency"/>">Installing the Oracle JDBC driver in the local repository</a>. 
 </p>
 
 <h3>Test</h3>
@@ -143,8 +144,8 @@ Go to the root directory, and run <strong>mvn jetty:run</strong> and visit http:
 
 <span id="refer">References</span>
 <ul id="references">
-  <li><a href="<%=request.getContextPath() %>/jsp/BBS-Study">Understanding bulletin board program</a></li>
-  <li><a href="<%=request.getContextPath() %>/spring/di#Oralce-JDBC-Driver-Dependency">Install the oracle JDBC driver in the local repository</a></li>
+  <li><a href="<c:url value="/jsp/BBS-Study"/>">Understanding bulletin board program</a></li>
+  <li><a href="<c:url value="/spring/di#Oralce-JDBC-Driver-Dependency"/>">Install the oracle JDBC driver in the local repository</a></li>
 </ul>
 
 </article>

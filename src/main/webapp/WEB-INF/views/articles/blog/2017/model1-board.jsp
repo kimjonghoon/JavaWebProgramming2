@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2017.9.2</div>
 	
@@ -7,12 +8,12 @@
 
 <p>
 예제 소스 : <a href="https://github.com/kimjonghoon/model1board">https://github.com/kimjonghoon/model1board</a><br />
-(설명은 <a href="<%=request.getContextPath() %>/jsp/BBS-Model1">모델 1 게시판</a> 참조)
+(설명은 <a href="<c:url value="/jsp/BBS-Model1"/>">모델 1 게시판</a> 참조)
 </p>
 
 <p>
-예제에서 사용하는 테이블과 시퀀스는 <a href="<%=request.getContextPath() %>/blog/2017/board-using-oracle-hierarchical-query">오라클 계층형 쿼리(Oracle Hierarchical Query)를 사용하는 게시판</a>과 같다.
-('<a href="<%=request.getContextPath() %>/jsp/BBS-Model1">모델 1 게시판</a>'의 테이블과 시퀀스 이름과 다르다.)
+예제에서 사용하는 테이블과 시퀀스는 <a href="<c:url value="/blog/2017/board-using-oracle-hierarchical-query"/>">오라클 계층형 쿼리(Oracle Hierarchical Query)를 사용하는 게시판</a>과 같다.
+('<a href="<c:url value="/jsp/BBS-Model1"/>">모델 1 게시판</a>'의 테이블과 시퀀스 이름과 다르다.)
 </p>
 
 <pre class="prettyprint">
@@ -133,7 +134,7 @@ commit;
 </pre>
 
 <p>
-<a href="<%=request.getContextPath() %>/spring/di#Oralce-JDBC-Driver-Dependency">오라클 JDBC 드라이버를 로컬 저장소에 설치하기</a>를 참조하여 오라클 JDBC 드라이버를 로컬 저장소에 등록시킨다.
+<a href="<c:url value="/spring/di#Oralce-JDBC-Driver-Dependency"/>">오라클 JDBC 드라이버를 로컬 저장소에 설치하기</a>를 참조하여 오라클 JDBC 드라이버를 로컬 저장소에 등록시킨다.
 </p>
 
 
@@ -145,8 +146,8 @@ commit;
 
 <span id="refer">참고</span>
 <ul id="references">
-	<li><a href="<%=request.getContextPath() %>/jsp/BBS-Model1">모델 1 게시판</a></li>
-	<li><a href="<%=request.getContextPath() %>/spring/di#Oralce-JDBC-Driver-Dependency">오라클 JDBC 드라이버를 로컬 저장소에 설치하기</a></li>
+	<li><a href="<c:url value="/jsp/BBS-Model1"/>">모델 1 게시판</a></li>
+	<li><a href="<c:url value="/spring/di#Oralce-JDBC-Driver-Dependency"/>">오라클 JDBC 드라이버를 로컬 저장소에 설치하기</a></li>
 </ul>
 
 </article>

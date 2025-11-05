@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.2.8</div>
 
@@ -196,8 +197,8 @@ Refer to the Linux configuration above and set it as follows.
 
 <span id="related-articles">Related Articles</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/blog/2019/how-to-make-epub">1 How to make EPUB ebook</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/how-to-make-epub-with-eclipse">2 How to make EPUB ebook with Eclipse</a></li>
+	<li><a href="<c:url value="/blog/2019/how-to-make-epub"/>">1 How to make EPUB ebook</a></li>
+	<li><a href="<c:url value="/blog/2019/how-to-make-epub-with-eclipse"/>">2 How to make EPUB ebook with Eclipse</a></li>
 </ul>
 
 </article>

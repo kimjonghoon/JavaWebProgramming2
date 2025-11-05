@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2021.12.1</div>
 	
@@ -7,7 +8,7 @@
 
 <p>
 Source: <a href="https://github.com/kimjonghoon/model1board">https://github.com/kimjonghoon/model1board</a><br />
-For more information, see the <a href="<%=request.getContextPath() %>/jsp/BBS-Model1">Model 1 bulletin board</a>.
+For more information, see the <a href="<c:url value="/jsp/BBS-Model1"/>">Model 1 bulletin board</a>.
 </p>
 
 <p>
@@ -133,7 +134,7 @@ commit;
 
 <p>
 Install the Oracle JDBC Driver in the local repository.<br />
-See <a href="<%=request.getContextPath() %>/spring/di#Oralce-JDBC-Driver-Dependency">Installing the Oracle JDBC Driver in the local repository</a>.
+See <a href="<c:url value="/spring/di#Oralce-JDBC-Driver-Dependency"/>">Installing the Oracle JDBC Driver in the local repository</a>.
 </p>
 
 
@@ -145,8 +146,8 @@ Go to the root directory and <strong>run mvn jetty:run</strong> and visit http:/
 
 <span id="refer">References</span>
 <ul id="references">
-  <li><a href="<%=request.getContextPath() %>/jsp/BBS-Model1">Model 1 bulletin board</a></li>
-  <li><a href="<%=request.getContextPath() %>/spring/di#Oralce-JDBC-Driver-Dependency">Installing the Oracle JDBC Driver in the local repository</a></li>
+  <li><a href="<c:url value="/jsp/BBS-Model1"/>">Model 1 bulletin board</a></li>
+  <li><a href="<c:url value="/spring/di#Oralce-JDBC-Driver-Dependency"/>">Installing the Oracle JDBC Driver in the local repository</a></li>
 </ul>
 
 </article>

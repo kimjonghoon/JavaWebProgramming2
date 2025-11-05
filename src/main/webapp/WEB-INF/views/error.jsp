@@ -2,20 +2,21 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:message code="lang" var="lang"/>
 <!DOCTYPE html>
-<html lang="<spring:message code="lang" />">
+<html lang="${lang }">
 <head>
 <meta charset="UTF-8" />
-<title><spring:message code="error.title" /></title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="Keywords" content="<spring:message code="error.keys" />" />
-<meta name="Description" content="<spring:message code="error.desc" />" />
-<link rel="icon" type="image/x-icon" href="<%=request.getContextPath() %>/resources/images/favicon.ico" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/<spring:message code="lang" />.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/screen.css" type="text/css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/print.css" type="text/css" />
-<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-<script src="<%=request.getContextPath() %>/resources/js/commons.js"></script>
+<title><spring:message code="error.title"/></title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="Keywords" content="<spring:message code="error.keys"/>"/>
+<meta name="Description" content="<spring:message code="error.desc"/>"/>
+<link rel="icon" type="image/x-icon" href="<c:url value="/resources/images/favicon.ico"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/${lang }.css"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/screen.css"/>" type="text/css"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/print.css"/>" type="text/css"/>
+<script src="<c:url value="/resources/js/jquery.js"/>"></script>
+<script src="<c:url value="/resources/js/commons.js"/>"></script>
 </head>
 <body>
 <%

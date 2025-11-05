@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.2.8</div>
 
@@ -223,8 +224,8 @@ Search for eclipse, run it, and pin it to the launcher.
 
 <span id="related-articles">Related Articles</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/blog/2017/Setting-development-environment-in-Ubuntu">Development in Ubuntu</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/java-development-environment-on-ubuntu-18">Java Development Environment on Ubutnu 18.04</a></li>
+	<li><a href="<c:url value="/blog/2017/Setting-development-environment-in-Ubuntu"/>">Development in Ubuntu</a></li>
+	<li><a href="<c:url value="/blog/2019/java-development-environment-on-ubuntu-18"/>">Java Development Environment on Ubutnu 18.04</a></li>
 </ul>
  
 </article>

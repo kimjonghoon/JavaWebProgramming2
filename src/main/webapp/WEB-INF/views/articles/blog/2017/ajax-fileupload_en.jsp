@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2017.12.2</div>
 	
@@ -8,7 +8,7 @@
 
 <p>
 Source: <a href="https://github.com/kimjonghoon/js-ajax-fileupload">https://github.com/kimjonghoon/js-ajax-fileupload</a><br />
-Added upload/download/delete file function to <a href="<%=request.getContextPath() %>/blog/2017/REST-example">the example of creating/modifying/deleting comments while watching a video</a>.
+Added upload/download/delete file function to <a href="<c:url value="/blog/2017/REST-example"/>">the example of creating/modifying/deleting comments while watching a video</a>.
 </p>
 
 <h3>Test</h3>

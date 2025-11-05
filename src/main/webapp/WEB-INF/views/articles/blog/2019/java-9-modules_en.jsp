@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.2.14</div>
 
@@ -1446,8 +1447,8 @@ Source: <a href="https://github.com/kimjonghoon/java-module-test">https://github
 
 <span id="related-articles">Related Articles</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/blog/2019/java-9-modules">Java 9 Modules</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2020/java-modules-javabank">JavaBank Modularization</a></li>
+	<li><a href="<c:url value="/blog/2019/java-9-modules"/>">Java 9 Modules</a></li>
+	<li><a href="<c:url value="/blog/2020/java-modules-javabank"/>">JavaBank Modularization</a></li>
 </ul>
 
 <span id="refer">References</span>

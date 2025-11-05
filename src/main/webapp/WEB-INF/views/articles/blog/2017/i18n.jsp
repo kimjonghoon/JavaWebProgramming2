@@ -257,7 +257,7 @@ data      Data      자료실
 <h6 class="src">BoardMapper.xml</h6>
 <pre class="prettyprint">
 &lt;select id="selectOneBoard" parameterType="string" resultType="Board"&gt;
-	SELECT * FROM board WHERE boardcd = #{boardCd}
+	SELECT * FROM board WHERE boardcd = &#35{boardCd}
 &lt;/select&gt;
 &lt;select id="selectAllBoards" resultType="Board"&gt;
 	SELECT * FROM board

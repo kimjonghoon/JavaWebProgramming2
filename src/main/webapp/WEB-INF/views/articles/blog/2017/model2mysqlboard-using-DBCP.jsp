@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2017.9.5</div>
 	
@@ -11,7 +12,7 @@
 
 <p>
 실습할 예제는 사용자 정의 커넥션 풀 대신 아파치의 DBCP를 사용하는, MySQL용 답변형 게시판이다.
-DBCP에 대한 자세한 설명은 <a href="<%=request.getContextPath() %>/jdbc/Connection-Pool#DBCP">DBCP</a>를 참조한다.
+DBCP에 대한 자세한 설명은 <a href="<c:url value="/jdbc/Connection-Pool#DBCP"/>">DBCP</a>를 참조한다.
 </p>
 
 <p>
@@ -149,7 +150,7 @@ commit;
 </pre>
 
 <p>
-family,parent,depth,indent 컬럼에 대한 자세한 설명은 <a href="<%=request.getContextPath() %>/jsp/Thread-BBS">계층형 게시판</a>을 참조한다.
+family,parent,depth,indent 컬럼에 대한 자세한 설명은 <a href="<c:url value="/jsp/Thread-BBS"/>">계층형 게시판</a>을 참조한다.
 </p>
 
 
@@ -161,10 +162,10 @@ family,parent,depth,indent 컬럼에 대한 자세한 설명은 <a href="<%=requ
 
 <span id="refer">참고</span>
 <ul id="references">
-	<li><a href="<%=request.getContextPath() %>/jsp/Thread-BBS">계층형 게시판</a></li>
-	<li><a href="<%=request.getContextPath() %>/java/Logging#logback">Logback</a>
-	<li><a href="<%=request.getContextPath() %>/jdbc/Connection-Pool#DBCP">DBCP</a>
-	<li><a href="<%=request.getContextPath() %>/jsp/Model2">모델 2</a></li>
+	<li><a href="<c:url value="/jsp/Thread-BBS"/>">계층형 게시판</a></li>
+	<li><a href="<c:url value="/java/Logging#logback"/>">Logback</a>
+	<li><a href="<c:url value="/jdbc/Connection-Pool#DBCP"/>">DBCP</a>
+	<li><a href="<c:url value="/jsp/Model2"/>">모델 2</a></li>
 </ul>
 
 </article>

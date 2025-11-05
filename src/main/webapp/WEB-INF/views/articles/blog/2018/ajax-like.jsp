@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2018.1.11</div>
 	
@@ -7,7 +8,7 @@
 
 <p>
 예제 소스 : <a href="https://github.com/kimjonghoon/ajax-like">https://github.com/kimjonghoon/ajax-like</a><br />
-(<a href="<%=request.getContextPath() %>/blog/2017/ajax-fileupload">에이잭스 파일 업로드 예제</a>에 좋아요 기능 추가)
+(<a href="<c:url value="/blog/2017/ajax-fileupload"/>">에이잭스 파일 업로드 예제</a>에 좋아요 기능 추가)
 </p>
 
 

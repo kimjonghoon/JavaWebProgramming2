@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.2.14</div>
 
@@ -1551,8 +1552,8 @@ main.app 모듈은 소비자<sup>Consumer</sup>다--
 
 <span id="related-articles">관련 글</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>/blog/2019/java-9-modules">자바 9 모듈</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2020/java-modules-javabank">자바은행 예제 모듈화</a></li>
+	<li><a href="<c:url value="/blog/2019/java-9-modules"/>">자바 9 모듈</a></li>
+	<li><a href="<c:url value="/blog/2020/java-modules-javabank"/>">자바은행 예제 모듈화</a></li>
 </ul>
 
 <span id="refer">참조</span>

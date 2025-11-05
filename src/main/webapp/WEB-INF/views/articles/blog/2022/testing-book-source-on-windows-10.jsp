@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 <div class="last-modified">Last Modified 2022.3.30</div>
 
@@ -696,14 +697,14 @@ pom.xml 파일에서 톰캣 설정은 주석 처리하고 제티 설정은 주�
 
 <span id="related-articles">관련 글</span>
 <ul id="related-articles-ul">
-	<li><a href="<%=request.getContextPath() %>">자바 설치</a></li>
-	<li><a href="<%=request.getContextPath() %>/spring/building-java-projects-with-maven">메이븐으로 자바 개발</a></li>
-	<li><a href="<%=request.getContextPath() %>/jsp/How-to-install-Tomcat">톰캣 설치</a></li>
-	<li><a href="<%=request.getContextPath() %>/jsp/Creating-a-new-web-application">웹 애플리케이션 작성 실습</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2017/jetty-maven-plugin">제티 메이븐 플러그인</a></li>
-	<li><a href="<%=request.getContextPath() %>/jdbc/How-to-install-Oracle">오라클 설치</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2019/java-development-environment-on-ubuntu-18">우분투 18.04에 자바 개발 환경 만들기</a></li>
-	<li><a href="<%=request.getContextPath() %>/blog/2017/Setting-development-environment-in-Ubuntu">우분투 개발환경</a></li>
+	<li><a href="<c:url value="/"/>">자바 설치</a></li>
+	<li><a href="<c:url value="/spring/building-java-projects-with-maven"/>">메이븐으로 자바 개발</a></li>
+	<li><a href="<c:url value="/jsp/How-to-install-Tomcat"/>">톰캣 설치</a></li>
+	<li><a href="<c:url value="/jsp/Creating-a-new-web-application"/>">웹 애플리케이션 작성 실습</a></li>
+	<li><a href="<c:url value="/blog/2017/jetty-maven-plugin"/>">제티 메이븐 플러그인</a></li>
+	<li><a href="<c:url value="/jdbc/How-to-install-Oracle"/>">오라클 설치</a></li>
+	<li><a href="<c:url value="/blog/2019/java-development-environment-on-ubuntu-18"/>">우분투 18.04에 자바 개발 환경 만들기</a></li>
+	<li><a href="<c:url value="/blog/2017/Setting-development-environment-in-Ubuntu"/>">우분투 개발환경</a></li>
 </ul>
 
 </article>

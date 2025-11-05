@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <article>
 
 <h1>Java 설치</h1>
@@ -156,7 +157,7 @@ Hello World!
 <h2>에디터 선택</h2>
 
 <p>
-<a href="<%=request.getContextPath() %>/java/Package_Modifiers">패키지와 접근자</a>까지 
+<a href="<c:url value="/java/Package_Modifiers"/>">패키지와 접근자</a>까지 
 <a href="http://www.editplus.com/kr/">에디트플러스</a>나 
 <a href="https://notepad-plus-plus.org">Notepad++</a>
 같은 단순한 에디터를 사용하는 게 좋다.<br />
@@ -168,7 +169,7 @@ Hello World!
 <article>
 <div id="next-prev">
   <ul>
-    <li>다음 : <a href="<%=request.getContextPath() %>/java/Features">자바의 특징</a></li>
+    <li>다음 : <a href="<c:url value="/java/Features"/>">자바의 특징</a></li>
   </ul>
 </div>
 </article>
