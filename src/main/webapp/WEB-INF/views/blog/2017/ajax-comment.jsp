@@ -2,15 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <spring:message code="lang" var="lang"/>
 <!DOCTYPE html>
 <html lang="${lang }">
 <head>
 <meta charset="UTF-8" />
-<title><spring:message code="model1-board.title"/></title>
+<title><spring:message code="ajax-comment.title"/></title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="Keywords" content="<spring:message code="model1-board.keys"/>"/>
-<meta name="Description" content="<spring:message code="model1-board.desc"/>"/>
+<meta name="Keywords" content="<spring:message code="ajax-comment.keys"/>"/>
+<meta name="Description" content="<spring:message code="ajax-comment.desc"/>"/>
 <link rel="icon" type="image/x-icon" href="<c:url value="/resources/images/favicon.ico"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/css/${lang }.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/css/screen.css"/>" type="text/css"/>
@@ -47,10 +48,10 @@
 <!-- content begin -->
 <c:choose>
 	<c:when test="${lang == 'ko'}">
-		<jsp:include page="../../articles/blog/2017/model1-board.jsp" />
+		<jsp:include page="../../articles/blog/2017/ajax-comment.jsp" />
 	</c:when>
 	<c:otherwise>
-		<jsp:include page="../../articles/blog/2017/model1-board_en.jsp" />
+		<jsp:include page="../../articles/blog/2017/ajax-comment_en.jsp" />
 	</c:otherwise>
 </c:choose>
 <!-- content end -->

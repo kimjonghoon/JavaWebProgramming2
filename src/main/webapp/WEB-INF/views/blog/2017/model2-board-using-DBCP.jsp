@@ -7,10 +7,10 @@
 <html lang="${lang }">
 <head>
 <meta charset="UTF-8" />
-<title><spring:message code="model1-board.title"/></title>
+<title><spring:message code="model2-board-using-DBCP.title"/></title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="Keywords" content="<spring:message code="model1-board.keys"/>"/>
-<meta name="Description" content="<spring:message code="model1-board.desc"/>"/>
+<meta name="Keywords" content="<spring:message code="model2-board-using-DBCP.keys"/>"/>
+<meta name="Description" content="<spring:message code="model2-board-using-DBCP.desc"/>"/>
 <link rel="icon" type="image/x-icon" href="<c:url value="/resources/images/favicon.ico"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/css/${lang }.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/css/screen.css"/>" type="text/css"/>
@@ -47,10 +47,10 @@
 <!-- content begin -->
 <c:choose>
 	<c:when test="${lang == 'ko'}">
-		<jsp:include page="../../articles/blog/2017/model1-board.jsp" />
+		<jsp:include page="../../articles/blog/2017/model2-board-using-DBCP.jsp" />
 	</c:when>
 	<c:otherwise>
-		<jsp:include page="../../articles/blog/2017/model1-board_en.jsp" />
+		<jsp:include page="../../articles/blog/2017/model2-board-using-DBCP_en.jsp" />
 	</c:otherwise>
 </c:choose>
 <!-- content end -->

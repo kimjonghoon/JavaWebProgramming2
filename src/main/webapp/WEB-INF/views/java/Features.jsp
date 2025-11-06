@@ -32,7 +32,6 @@
 	<div id="container">
 		<div id="content">
 <!-- content begin -->
-<spring:message code="lang" var="lang" />
 <c:choose>
 	<c:when test="${lang == 'ko'}">
 		<jsp:include page="../articles/0020-Features.jsp" />
