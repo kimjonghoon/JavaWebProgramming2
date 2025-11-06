@@ -5,7 +5,7 @@
 
 <modelVersion>4.0.0</modelVersion>
 <groupId>net.java_school</groupId>
-<artifactId>jwpv2</artifactId>
+<artifactId>jwp2</artifactId>
 <version>1.0-SNAPSHOT</version>
 <packaging>war</packaging>
 <name>Java Web Programming Source Webapp</name>
@@ -155,7 +155,7 @@
 </dependencies>
 
 <build>
-	<finalName>jwpv2</finalName>
+	<finalName>jwp2</finalName>
 	<pluginManagement>
 		<plugins>
 			<plugin>
