@@ -79,15 +79,15 @@ public class UsersController {
 			return "users/editAccount";
 		}
 
+		user.setEmail(principal.getName());
 		try {
 			userService.editAccount(user);
 		} catch (AccessDeniedException e) {
 			String message =  messageSource.getMessage("passwd.incorrect", null, locale);
 			throw new AccessDeniedException(message);
-		}    
+		}
 
 		return "redirect:/users/changePasswd";
-
 	}
 
 	@GetMapping("changePasswd")
