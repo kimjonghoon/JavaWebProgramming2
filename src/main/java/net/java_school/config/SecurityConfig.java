@@ -15,7 +15,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
@@ -33,8 +32,8 @@ public class SecurityConfig {
 	@Bean
 	public UserDetailsService userDetailsService() {
 		JdbcUserDetailsManager manager = new JdbcUserDetailsManager(dataSource);
-		manager.setUsersByUsernameQuery("select email as username,passwd as password,1 as enabled from member where email = ?");
-		manager.setAuthoritiesByUsernameQuery("select email as username,authority from authorities where email = ?");
+		manager.setUsersByUsernameQuery("SELECT email as username, passwd as password, 1 as enabled FROM member WHERE email = ?");
+		manager.setAuthoritiesByUsernameQuery("SELECT email as username, authority FROM authorities WHERE email = ?");
 		return manager;
 	}
 
@@ -44,6 +43,7 @@ public class SecurityConfig {
 		provider.setPasswordEncoder(passwordEncoder());
 		return provider;
 	}
+
 	/*
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
@@ -76,8 +76,8 @@ public class SecurityConfig {
 				.requestMatchers(HttpMethod.GET, "/bbs/**").authenticated()
 				.anyRequest().permitAll()
 			)
-			.formLogin(form -> form.loginPage("/users/login").permitAll().loginProcessingUrl("/login"))
-			.logout((logout) -> logout.logoutSuccessUrl("/").invalidateHttpSession(true)).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+			.formLogin(form -> form.loginPage("/users/login").permitAll().loginProcessingUrl("/login").defaultSuccessUrl("/bbs/chat?page=1").failureUrl("/users/login?error=1"))
+			.logout((logout) -> logout.logoutSuccessUrl("/"))
 			.httpBasic(withDefaults());
 			
 		return http.build();
