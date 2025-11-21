@@ -7,7 +7,7 @@
 <div style="float: left;width: 150px;position: relative;top: 7px;"><a href="${ctx}"><img src="${ctx}/resources/images/ci.gif" alt="java-school" /></a></div>
 
 <div id="memberMenu" style="float: right;position: relative;top: 7px;">
-<security:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+<security:authorize access="hasAnyRole('USER','ADMIN')">
 	<security:authentication property="principal.username" var="check" />
 </security:authorize>
 <c:choose>
