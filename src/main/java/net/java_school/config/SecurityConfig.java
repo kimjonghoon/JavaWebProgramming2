@@ -42,9 +42,7 @@ public class SecurityConfig {
 	public DaoAuthenticationProvider daoAuthenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService());
 		provider.setPasswordEncoder(passwordEncoder());
-		
 		return provider;
-		
 	}
 	/*
 	@Autowired
