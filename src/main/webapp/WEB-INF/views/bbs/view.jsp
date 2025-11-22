@@ -450,7 +450,7 @@ pageContext.setAttribute("writeDate", df.format((java.util.Date) writeDate));
 </div>
 
 <div id="list-menu">
-    <button type="button"><spring:message code="new.article" /></button>
+    <button type="button" class="goWrite"><spring:message code="new.article" /></button>
 </div>
 
 <form id="searchForm" action="<c:url value="/bbs/${boardCd }"/>" method="get">

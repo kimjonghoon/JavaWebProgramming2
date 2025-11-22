@@ -3,10 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                       https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
-  version="6.0">
+  version="6.0"
+  metadata-complete="true">
 
-	<display-name>jwp source v2</display-name>
-	
+<display-name>jwp book source v2</display-name>
+
 	<error-page>
 		<error-code>403</error-code>
 		<location>/WEB-INF/views/403.jsp</location>

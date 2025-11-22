@@ -37,4 +37,5 @@ public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispat
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement(null, maxFileSize, maxRequestSize, fileSizeThreshold);
 		registration.setMultipartConfig(multipartConfigElement);
 	}
+	
 }
